@@ -1,0 +1,43 @@
+@extends('layouts.app')
+
+
+@section('content')
+ <div class="row">
+	<div class="col s12 m5">
+	 &nbsp;
+	</div>
+	<div class="col s12 m6">
+		<div class="card card-panel">
+		 <form class="col s12" method="post" action="{{ url('/login') }}">
+			<input type="hidden" name="_token" value="{!! csrf_token() !!}">
+			<div class="row">
+			 <div class="input-field">
+				<input type="email" id="email" name="email" placeholder="email">
+				<label for="email">Email</label>
+			 </div>
+			</div>
+
+			<div class="row">
+			 <div class="input-field">
+				<input type="password" id="password" name="password" placeholder="password">
+				<label for="password">Password</label>
+			 </div>
+			</div>
+			<div class="row">
+			 <button class="btn waves-effect waves-light right" type="submit" name="action">Log In
+				<i class="material-icons right">send</i>
+			 </button>
+			</div>
+			@if(count($errors) > 0)
+			 <ul>
+				@foreach($errors as $error)
+				 <li>{{ $error }}</li>
+				@endforeach
+			 </ul>
+			@endif
+
+		 </form>
+		</div>
+	</div>
+ </div>
+@endsection
