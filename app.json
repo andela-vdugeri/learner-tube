@@ -1,0 +1,8 @@
+{
+  "name":"learner-tube",
+  "scripts":{},
+  "env":{},
+  "addons":[
+    "heroku-postgresql"
+  ]
+}
