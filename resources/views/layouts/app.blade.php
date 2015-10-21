@@ -8,7 +8,9 @@
  <!-- CSS  -->
  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
  <link href="{{ asset('css/materialize.css') }}" type="text/css" rel="stylesheet" media="screen,projection"/>
+ <link href="{{ secure_asset('css/materialize.css') }}" type="text/css" rel="stylesheet" media="screen,projection"/>
  <link href="{{ asset('css/style.css') }}" type="text/css" rel="stylesheet" media="screen,projection"/>
+ <link href="{{ secure_asset('css/style.css') }}" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 <body>
 <nav class="white" role="navigation">
