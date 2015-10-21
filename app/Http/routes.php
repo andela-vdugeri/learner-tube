@@ -19,27 +19,27 @@ Route::get('/', function () {
  * Registration routes
  */
 Route::get('/register', [
-  'uses' => 'auth\AuthController@getRegister',
+  'uses' => 'Auth\AuthController@getRegister',
   'as'   => 'auth.register'
 ]);
-Route::post('/register' , 'auth\AuthController@postRegister');
+Route::post('/register' , 'Auth\AuthController@postRegister');
 
 /**
  * Authentication routes
  */
 
 Route::get('/logout', [
-  	'uses' => 'auth\AuthController@getLogout',
+  	'uses' => 'Auth\AuthController@getLogout',
 	'as'   => 'auth.logout'
 ]);
 
 Route::get('/login', [
-  	'uses' => 'auth\AuthController@getLogin',
-	'as'   =>  'auth.login'
+  	'uses' => 'Auth\AuthController@getLogin',
+	'as'   =>  'Auth.login'
 ]);
 
 
-Route::post('/login', 'auth\AuthController@postLogin');
+Route::post('/login', 'Auth\AuthController@postLogin');
 
 /**
  * user dashboard
