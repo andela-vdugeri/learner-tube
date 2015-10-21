@@ -12,7 +12,7 @@
           <h5 class="header col s12 light">Get all the video tutorials you need to become a pro in that field</h5>
         </div>
         <div class="row center">
-          <a href="{{url('/register')}}" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Get Started</a>
+          <a href="{{route('auth.register')}}" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Get Started</a>
         </div>
         <br><br>
 
@@ -78,7 +78,6 @@
 
   <div class="container">
     <div class="section">
-
       <div class="row">
         <div class="col s12 center">
           <h3><i class="mdi-content-send brown-text"></i></h3>
@@ -89,7 +88,6 @@
 
     </div>
   </div>
-
 
   <div class="parallax-container valign-wrapper">
     <div class="section no-pad-bot">

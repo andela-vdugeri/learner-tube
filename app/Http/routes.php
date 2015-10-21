@@ -48,3 +48,8 @@ Route::get('/dashboard',[
 	'uses' => 'HomeController@index',
 	'as'   => 'dashboard'
 ]);
+
+Route::post('/video', [
+	'uses' 	=> 'HomeController@store',
+	'as'	=> 'post.video'
+]);

@@ -2,14 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Video;
 use Illuminate\Http\Request;
 use App\Http\Requests;
-use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\VideoFormRequest;
 
-class HomeController extends Controller
+class VideoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,7 +15,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('dashboard');
+        //
     }
 
     /**
@@ -31,27 +28,15 @@ class HomeController extends Controller
         //
     }
 
-	/**
-	 * Store a newly created video
-	 *
-	 * @param VideoFormRequest $request
-	 */
-    public function store(VideoFormRequest $request, Video $video)
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
     {
-		//retrieve the authenticated user
-		$user = Auth::user();
-		//create the resource
-		$video->title 		= $request->get('title');
-		$video->url			= $request->get('url');
-		$video->description = $request->get('description');
-		$video->category_id = 1;
-		$video->owner_id	= $user->id;
-
-		$video->save();
-
-
-		return redirect()->action('HomeController@index')->with($video);
-
+        //
     }
 
     /**

@@ -28,14 +28,25 @@
 				<i class="material-icons right">send</i>
 			 </button>
 			</div>
+
+
 			@if(count($errors) > 0)
+			<div class="red">
 			 <ul>
-				@foreach($errors as $error)
+				@foreach($errors->all() as $error)
 				 <li>{{ $error }}</li>
 				@endforeach
 			 </ul>
+			</div>
 			@endif
 
+			@if(session()->has('message'))
+			 <div class="red">
+				<ul>
+				 <li>{{session('message')}}</li>
+				</ul>
+			 </div>
+			@endif
 		 </form>
 		</div>
 	</div>

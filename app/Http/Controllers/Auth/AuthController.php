@@ -82,26 +82,34 @@ class AuthController extends Controller
 
 	public function postRegister(Request $request)
 	{
-		$this->validator($request->all());
+		$this->validate($request, [
+		  'email' 	=> 'required|unique:users|email|max:255',
+		  'name'  	=> 'required|unique:users|max:255',
+		  'password'=> 'required|confirmed|min:6'
+		]);
 
 		$this->create($request->all());
 
 		return redirect()
-		  ->route('index')
+		  ->route('dashboard')
 		  ->with('message','Your account has been created');
 	}
 
 	public function postLogin(Request $request)
 	{
-		$this->validator($request->all());
+		$this->validate($request, [
+		  'email' 	 => 'required|email',
+		  'password' => 'required|min:6'
+		]);
 
 		$auth = Auth::attempt($request->only('email', 'password'),
 		  $request->has('remember'));
 
+
 		if (! $auth ) {
-			return redirect()->back()->with('message', 'Invalid user credentials');
+			return redirect()->back()->withInput()->with('message','Invalid user credentials');
 		}
 
-		return redirect()->route('dashboard')->with('info', 'you are logged in');
+		return redirect('dashboard')->with('info', 'you are logged in');
 	}
 }

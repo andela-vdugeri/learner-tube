@@ -19,25 +19,30 @@
 		</div>
 	 </div>
 	</div>
+
 	<div class="col s6">
-	 <div class="section">
-		<div class="input-field">
-		 <input type="text" id="title" name="title" placeholder="title">
-		</div>
-		<div class="card z-depth-3">
+	 <form class="col s12" method="post" action="{{route('post.video')}}">
+		<input type="hidden" name="_token" value="{!! csrf_token() !!}">
+		<div class="section">
 		 <div class="input-field">
-			<textarea id="about" class="materialize-textarea" placeholder="Video description"></textarea>
-			<span>
-				<i class="material-icons">camera</i>
-			 </span>
-			<div class="row">
-			 <button class="btn waves-effect waves-light right" type="submit" name="action">Upload
-				<i class="material-icons right">send</i>
-			 </button>
+			<input type="text" id="title" name="title" placeholder="title">
+		 </div>
+		 <div class="input-field">
+			<input type="text" name="url" id="url" placeholder="video url">
+		 </div>
+		 <div class="card z-depth-3">
+			<div class="input-field">
+			 <textarea id="about" name="description" class="materialize-textarea" placeholder="Video description"></textarea>
+			 <div class="row">
+				<button class="btn waves-effect waves-light right" type="submit" name="action">Post
+				 <i class="material-icons right">send</i>
+				</button>
+			 </div>
 			</div>
 		 </div>
 		</div>
-	 </div>
+	 </form>
+
 	 <div class="section">
 		<div class="card teal lighten-5 z-depth-3">
 		 <div class="row">
