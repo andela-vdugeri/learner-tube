@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -66,4 +68,40 @@ class AuthController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+
+	public function getRegister()
+	{
+		return view('auth.register');
+	}
+
+
+	public function getLogin()
+	{
+		return view('auth.login');
+	}
+
+	public function postRegister(Request $request)
+	{
+		$this->validator($request->all());
+
+		$this->create($request->all());
+
+		return redirect()
+		  ->route('index')
+		  ->with('message','Your account has been created');
+	}
+
+	public function postLogin(Request $request)
+	{
+		$this->validator($request->all());
+
+		$auth = Auth::attempt($request->only('email', 'password'),
+		  $request->has('remember'));
+
+		if (! $auth ) {
+			return redirect()->back()->with('message', 'Invalid user credentials');
+		}
+
+		return redirect()->route('dashboard')->with('info', 'you are logged in');
+	}
 }

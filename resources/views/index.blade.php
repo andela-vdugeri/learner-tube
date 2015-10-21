@@ -18,7 +18,7 @@
 
       </div>
     </div>
-    <div class="parallax"><img src="{{ asset('images/background1.jpg') }}" alt="Unsplashed background img 1"></div>
+    <div class="parallax"><img src="{{ asset('images/tech.jpg') }}" alt="Unsplashed background img 1"></div>
   </div>
 
 
@@ -32,7 +32,9 @@
             <h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>
             <h5 class="center">Video Tutorial</h5>
 
-            <p class="light"><img height="200" width="200" alt="Video frame" src="#"></p>
+					 <div class="video-container">
+						<iframe width="853" height="480" src="//www.youtube.com/embed/Q8TXgCzxEnw?rel=0" frameborder="0" allowfullscreen></iframe>
+					 </div>
           </div>
         </div>
 
@@ -41,7 +43,9 @@
 				 <h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>
 				 <h5 class="center">Video Tutorial</h5>
 
-				 <p class="light"><img height="200" width="200" alt="Video frame" src="#"></p>
+					<div class="video-container">
+					 <iframe width="853" height="480" src="//www.youtube.com/embed/Q8TXgCzxEnw?rel=0" frameborder="0" allowfullscreen></iframe>
+					</div>
 				 </div>
 			  </div>
 
@@ -50,7 +54,9 @@
 				 <h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>
 				 <h5 class="center">Video Tutorial</h5>
 
-				 <p class="light"><img height="200" width="200" alt="Video frame" src="#"></p>
+				 <div class="video-container">
+					<iframe width="853" height="480" src="//www.youtube.com/embed/Q8TXgCzxEnw?rel=0" frameborder="0" allowfullscreen></iframe>
+				 </div>
 				</div>
 			 </div>
       </div>
@@ -67,7 +73,7 @@
         </div>
       </div>
     </div>
-    <div class="parallax"><img src="{{ asset('images/background2.jpg') }}" alt="Unsplashed background img 2"></div>
+    <div class="parallax"><img src="{{ asset('images/study.jpg') }}" alt="Unsplashed background img 2"></div>
   </div>
 
   <div class="container">
@@ -89,10 +95,10 @@
     <div class="section no-pad-bot">
       <div class="container">
         <div class="row center">
-          <h5 class="header col s12 light">Never stop learning</h5>
+          <h5 class="header col s12 light">Learn to become a better you.</h5>
         </div>
       </div>
     </div>
-    <div class="parallax"><img src="{{ asset('images/background3.jpg') }}" alt="Unsplashed background img 3"></div>
+    <div class="parallax"><img src="{{ asset('images/study2.jpg') }}" alt="Unsplashed background img 3"></div>
   </div>
 @endsection

@@ -18,20 +18,33 @@ Route::get('/', function () {
 /**
  * Registration routes
  */
-Route::get('/register', 'Auth\AuthController@getRegister');
+Route::get('/register', [
+  'uses' => 'Auth\AuthController@getRegister',
+  'as'   => 'auth.register'
+]);
 Route::post('/register' , 'Auth\AuthController@postRegister');
 
 /**
  * Authentication routes
  */
 
-Route::get('/logout', 'Auth\AuthController@getLogout');
-Route::get('/login', 'Auth\AuthController@getLogin');
+Route::get('/logout', [
+  	'uses' => 'Auth\AuthController@getLogout',
+	'as'   => 'auth.logout'
+]);
+
+Route::get('/login', [
+  	'uses' => 'Auth\AuthController@getLogin',
+	'as'   =>  'auth.login'
+]);
+
+
 Route::post('/login', 'Auth\AuthController@postLogin');
 
 /**
  * user dashboard
  */
-Route::get('/dashboard', function(){
-	return "Welcome";
-});
+Route::get('/dashboard',[
+	'uses' => 'HomeController@index',
+	'as'   => 'dashboard'
+]);
