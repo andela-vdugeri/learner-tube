@@ -12,9 +12,13 @@
 */
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/', [
+	'uses' => '\App\Http\Controllers\WelcomeController@index',
+	'as'   =>  'welcome',
+	'middleware' => ['guest']
+]);
+
 /**
  * Registration routes
  */
