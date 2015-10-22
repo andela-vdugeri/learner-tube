@@ -24,6 +24,15 @@
 			 </div>
 			</div>
 			<div class="row">
+			 <div class="col s2">
+				<a href="{{ url('facebook') }}" class="fa fa-facebook fa-2x"></a>
+			 </div>
+			 <div class="col s2">
+				<a href="{{ url('twitter') }}" class="fa fa-twitter fa-2x"></a>
+			 </div>
+			 <div class="col s2">
+				<a href="{{ url('github') }}" class="fa fa-github fa-2x"></a>
+			 </div>
 			 <button class="btn waves-effect waves-light right" type="submit" name="action">Log In
 				<i class="material-icons right">send</i>
 			 </button>

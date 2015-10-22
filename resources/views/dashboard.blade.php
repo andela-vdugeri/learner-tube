@@ -49,7 +49,7 @@
 			</div>
 		 </div>
 		 <div class="modal-footer">
-			<button class="btn waves-effect waves-light" type="submit" name="action">Post
+			<button class="btn waves-effect waves-light" type="submit" name="action" id="post-video">Post
 			 <i class="material-icons right">send</i>
 			</button>
 		 </div>

@@ -63,5 +63,5 @@ Route::post('/video', [
  * Github authentication routes
  */
 
-Route::get('github', 'Auth\AuthController@doSocial');
+Route::get('{provider}', 'Auth\AuthController@doSocial');
 

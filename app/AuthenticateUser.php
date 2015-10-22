@@ -43,15 +43,16 @@ class AuthenticateUser {
 		$this->auth = $auth;
 	}
 
-	public function execute($hasCode, $listener)
+	public function execute($hasCode, $listener, $provider)
 	{
 
 		if(! $hasCode) {
 
-			return $this->getAuthorization();
+			return $this->getAuthorization($provider);
 		}
 
-		$user = $this->users->findByUsernameOrCreate($this->getUser());
+
+		$user = $this->users->findByUsernameOrCreate($this->getUser($provider));
 
 		$this->auth->login($user, true);
 
@@ -59,13 +60,13 @@ class AuthenticateUser {
 	}
 
 
-	public function getAuthorization()
+	public function getAuthorization($provider)
 	{
-		return $this->socialite->driver('github')->redirect();
+		return $this->socialite->driver($provider)->redirect();
 	}
 
-	public function getUser()
+	public function getUser($provider)
 	{
-		return $this->socialite->driver('github')->user();
+		return $this->socialite->driver($provider)->user();
 	}
 }

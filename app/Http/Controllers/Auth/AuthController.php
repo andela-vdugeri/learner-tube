@@ -115,9 +115,9 @@ class AuthController extends Controller
 	}
 
 
-	public function doSocial(AuthenticateUser $authenticate, Request $request)
+	public function doSocial(AuthenticateUser $authenticate, Request $request, $provider = null)
 	{
-		return $authenticate->execute($request->has('code'), $this) ;
+		return $authenticate->execute($request->has('code')|| $request->has('oauth_token'), $this, $provider) ;
 	}
 
 	public function userAuthenticated($user)

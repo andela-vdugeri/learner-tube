@@ -62,10 +62,10 @@
 		</div>
 		<div class="row">
 		 <div class="col s2">
-			<a href="#" class="fa fa-facebook fa-2x"></a>
+			<a href="{{ url('facebook') }}" class="fa fa-facebook fa-2x"></a>
 		 </div>
 		 <div class="col s2">
-			<a href="#" class="fa fa-twitter fa-2x"></a>
+			<a href="{{ url('twitter') }}" class="fa fa-twitter fa-2x"></a>
 		 </div>
 		 <div class="col s2">
 			 <a href="{{ url('github') }}" class="fa fa-github fa-2x"></a>

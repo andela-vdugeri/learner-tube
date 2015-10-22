@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Repositories\UserRepository;
 use App\Video;
 use Illuminate\Http\Request;
@@ -19,7 +20,11 @@ class HomeController extends Controller
     public function index(UserRepository $repo)
     {
 		$user = Auth::user();
-        return view('dashboard', compact('repo', 'user'));
+
+		//get all categories
+
+		$categories = Category::all();
+        return view('dashboard', compact('repo', 'user', 'categories'));
     }
 
     /**
@@ -40,6 +45,8 @@ class HomeController extends Controller
     public function store(VideoFormRequest $request, Video $video)
     {
 		//retrieve the authenticated user
+
+		dd($request);
 		$user = Auth::user();
 		//create the resource
 		$video->title 		= $request->get('title');
