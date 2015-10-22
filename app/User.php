@@ -41,7 +41,7 @@ class User extends Model implements AuthenticatableContract,
 	/**
 	 * @return \Illuminate\Database\Eloquent\Relations\HasMany
 	 */
-	public function video()
+	public function videos()
 	{
 		return $this->hasMany('App\Video');
 	}

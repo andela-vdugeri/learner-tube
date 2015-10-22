@@ -13,7 +13,7 @@ class Video extends Model
 		'description',
 		'url',
 		'category_id',
-		'owner_id'
+		'user_id'
 	];
 
 

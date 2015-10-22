@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace app\Http\Controllers;
 
 use App\Category;
 use App\Repositories\UserRepository;
@@ -13,17 +13,17 @@ use App\Http\Requests\VideoFormRequest;
 
 class HomeController extends Controller
 {
-	/**
-	 * @param UserRepository $repo
-	 * @return \Illuminate\View\View
-	 */
+    /**
+     * @param UserRepository $repo
+     * @return \Illuminate\View\View
+     */
     public function index(UserRepository $repo)
     {
-		$user = Auth::user();
+        $user = Auth::user();
 
-		//get all categories
+        //get all categories
 
-		$categories = Category::all();
+        $categories = Category::all();
         return view('dashboard', compact('repo', 'user', 'categories'));
     }
 
@@ -37,29 +37,33 @@ class HomeController extends Controller
         //
     }
 
-	/**
-	 * @param VideoFormRequest $request
-	 * @param Video $video
-	 * @return \Illuminate\Http\RedirectResponse
-	 */
-    public function store(VideoFormRequest $request, Video $video)
+    /**
+     * @param VideoFormRequest $request
+     * @param Video $video
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function store(Request $request, Video $video)
     {
-		//retrieve the authenticated user
+        //retrieve the authenticated user
 
-		dd($request);
-		$user = Auth::user();
-		//create the resource
-		$video->title 		= $request->get('title');
-		$video->url			= $request->get('url');
-		$video->description = $request->get('description');
-		$video->category_id = 1;
-		$video->owner_id	= $user->id;
+        if ($request->ajax()) {
 
-		$video->save();
+			$user = Auth::user();
 
 
-		return redirect()->action('HomeController@index')->with($video);
+			//create the resource
+			$video->title       = $request->get('title');
+			$video->url         = $request->get('videoUrl');
+			$video->description = $request->get('description');
+			$video->category_id = $request->get('videoCategory');
+			$video->user_id    	= $user->id;
 
+			$video->save();
+
+			return response(json_encode($request->all()));
+        }
+
+        return redirect()->action('HomeController@index');
     }
 
     /**
