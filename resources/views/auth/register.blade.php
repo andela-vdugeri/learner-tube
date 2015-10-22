@@ -4,7 +4,21 @@
 @section('content')
 <div class="row">
  <div class="col s12 m5">
-	&nbsp;
+	<div class="row section">
+	 <div class="col s12 m12">
+
+	 </div>
+	</div>
+	<div class="row section">
+	 <div class="col s12 m12">
+
+	 </div>
+	</div>
+	<div class="row section">
+	 <div class="col s12 m12">
+
+	 </div>
+	</div>
  </div>
 
  <div class="col s12 m6">
@@ -47,7 +61,16 @@
 		 </div>
 		</div>
 		<div class="row">
-		 <button class="btn waves-effect waves-light right" type="submit" name="action">Sign Up
+		 <div class="col s2">
+			<a href="#" class="fa fa-facebook fa-2x"></a>
+		 </div>
+		 <div class="col s2">
+			<a href="#" class="fa fa-twitter fa-2x"></a>
+		 </div>
+		 <div class="col s2">
+			 <a href="{{ url('github') }}" class="fa fa-github fa-2x"></a>
+		 </div>
+		 <button class="btn waves-effect waves-light right cyan" type="submit" name="action">Sign Up
 			<i class="material-icons right">send</i>
 		 </button>
 		</div>

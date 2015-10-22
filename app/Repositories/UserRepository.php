@@ -38,4 +38,14 @@ class UserRepository {
 	{
 		return "http://www.gravatar.com/avatar/" . md5(strtolower(trim($user->email))) . "?d=mm&s=140";
 	}
+
+
+	public function findByUsernameOrCreate($userData)
+	{
+		return User::firstOrCreate([
+			'email' => $userData->email,
+			'name' => $userData->nickname,
+			'password' => 'password'
+		]);
+	}
 }

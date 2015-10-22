@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\AuthenticateUser;
 use App\User;
+use Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Validator;
 use App\Http\Controllers\Controller;
+use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
@@ -111,4 +113,17 @@ class AuthController extends Controller
 
 		return redirect('dashboard')->with('info', 'you are logged in');
 	}
+
+
+	public function doSocial(AuthenticateUser $authenticate, Request $request)
+	{
+		return $authenticate->execute($request->has('code'), $this) ;
+	}
+
+	public function userAuthenticated($user)
+	{
+		return redirect('/dashboard');
+	}
+
+
 }

@@ -57,3 +57,11 @@ Route::post('/video', [
 	'uses' 	=> 'HomeController@store',
 	'as'	=> 'post.video'
 ]);
+
+
+/**
+ * Github authentication routes
+ */
+
+Route::get('github', 'Auth\AuthController@doSocial');
+
