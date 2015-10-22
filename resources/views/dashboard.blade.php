@@ -55,9 +55,8 @@
 		 </div>
 		 </form>
 		</div>
-
-
 		<!-- end of modal -->
+
 		<div class="row">
 		 <div class="col s6 m6">
 			<div class="card card-right section">
@@ -89,3 +88,5 @@
  </div>
 </section>
 @endsection
+
+<script type="text/javascript" src="{{ asset('js/application.js') }}"></script>

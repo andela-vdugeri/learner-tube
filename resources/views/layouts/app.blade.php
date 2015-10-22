@@ -32,6 +32,8 @@
 <script src="{{ secure_asset('js/materialize.js') }}"></script>
 <script src="{{ asset('js/init.js') }}"></script>
 <script src="{{ secure_asset('js/init.js') }}"></script>
+<script src="{{ secure_asset('js/application.js') }}"></script>
+<script src="{{ asset('js/application.js') }}"></script>
 <script>
  $(document).ready(function(){
 	// the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
