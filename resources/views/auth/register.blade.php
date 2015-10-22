@@ -55,6 +55,8 @@
 	</div>
  </div>
 </div>
+@endsection
 
-</div>
+@section('footer')
+ @include('partials.footer')
 @endsection

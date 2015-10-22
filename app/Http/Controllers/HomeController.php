@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Repositories\UserRepository;
 use App\Video;
 use Illuminate\Http\Request;
 use App\Http\Requests;
@@ -11,14 +12,14 @@ use App\Http\Requests\VideoFormRequest;
 
 class HomeController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+	/**
+	 * @param UserRepository $repo
+	 * @return \Illuminate\View\View
+	 */
+    public function index(UserRepository $repo)
     {
-        return view('dashboard');
+		$user = Auth::user();
+        return view('dashboard', compact('repo', 'user'));
     }
 
     /**
@@ -32,9 +33,9 @@ class HomeController extends Controller
     }
 
 	/**
-	 * Store a newly created video
-	 *
 	 * @param VideoFormRequest $request
+	 * @param Video $video
+	 * @return \Illuminate\Http\RedirectResponse
 	 */
     public function store(VideoFormRequest $request, Video $video)
     {

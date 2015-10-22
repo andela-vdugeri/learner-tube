@@ -1,77 +1,91 @@
 @extends('layouts.app')
 
-
+@section('navigation')
+ @include('partials.home-nav')
+@endsection
 @section('content')
-
+<section>
  <div class="row">
-	<div class="col s4">
-	 <div class="section">
-		<div class="card teal lighten-2">
-		 <div class="card-panel teal lighten-5">
-			<img  height="200" width="200" src="{{ asset('images/tech.jpg') }}" alt="" class="circle responsive-img z-depth-2" id="profile-image">
-			<div class="center-align">
-			 <h3>Verem Dugeri</h3>
+	 <div class="col s3 m3">
+		<div class="section">
+			<div class="card">
+			 <div class="card-image waves-effect waves-block waves-light">
+				<img class="activator" src="https://static.pexels.com/photos/9752/taking-photo-hiking-sport-adventure-large.jpg">
+			 </div>
+			 <div class="card-content">
+				<span class="card-title activator grey-text text-darken-4">John Doe<i class="material-icons right">more_vert</i></span>
+				<p><a href="#">Edit Profile</a></p>
+			 </div>
+			 <div class="card-reveal">
+				<span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+				<p>Here is some more information about this person that is only revealed once clicked on.</p>
+			 </div>
 			</div>
-		 </div>
-		 <div class="center-align">
-			<h4>Videos : 22</h4>
-		 </div>
-		</div>
 	 </div>
 	</div>
+	<div class="col s6 m6">
+	 <div class="section">
+		<div class="row">
+		 <a class="btn-floating btn-large waves-effect waves-light red right modal-trigger" href="#addVideo"><i class="material-icons">add</i></a>
+		</div>
+		<!-- modal -->
 
-	<div class="col s6">
-	 <form class="col s12" method="post" action="{{route('post.video')}}">
-		<input type="hidden" name="_token" value="{!! csrf_token() !!}">
-		<div class="section">
-		 <div class="input-field">
-			<input type="text" id="title" name="title" placeholder="title">
-		 </div>
-		 <div class="input-field">
-			<input type="text" name="url" id="url" placeholder="video url">
-		 </div>
-		 <div class="card z-depth-3">
+		<div id="addVideo" class="modal">
+		 <form method="post" action="{{ route('post.video') }}">
+			<input type="hidden" name="_token" value="{!! csrf_token() !!}">
+		 <div class="modal-content">
+			<h5>Post a video</h5>
 			<div class="input-field">
-			 <textarea id="about" name="description" class="materialize-textarea" placeholder="Video description"></textarea>
-			 <div class="row">
-				<button class="btn waves-effect waves-light right" type="submit" name="action">Post
-				 <i class="material-icons right">send</i>
-				</button>
+			 <input type="text" name="title" id="title" placeholder="title">
+			</div>
+			<div class="input-field">
+			 <input type="text" name="url" id="url" placeholder="video url">
+			</div>
+			<div class="input-field">
+			 <select name="category" id="category">
+				<option value="1">programming</option>
+				<option value="2">graphic design</option>
+			 </select>
+			</div>
+		 </div>
+		 <div class="modal-footer">
+			<button class="btn waves-effect waves-light" type="submit" name="action">Post
+			 <i class="material-icons right">send</i>
+			</button>
+		 </div>
+		 </form>
+		</div>
+
+
+		<!-- end of modal -->
+		<div class="row">
+		 <div class="col s6 m6">
+			<div class="card card-right section">
+			 <div class="video-container">
+				<iframe width="640" height="360" src="https://www.youtube.com/embed/LgvKyC0WcW8" frameborder="0" allowfullscreen></iframe>
+			 </div>
+			</div>
+		 </div>
+
+		 <div class="col s6 m6">
+			<div class="card card-right section">
+			 <div class="video-container">
+				<iframe width="640" height="360" src="https://www.youtube.com/embed/LgvKyC0WcW8" frameborder="0" allowfullscreen></iframe>
 			 </div>
 			</div>
 		 </div>
 		</div>
-	 </form>
-
-	 <div class="section">
-		<div class="card teal lighten-5 z-depth-3">
-		 <div class="row">
-			Title - Description of video
-		 </div>
-		 <div class="video-container">
-			<iframe width="853" height="480" src="//www.youtube.com/embed/Q8TXgCzxEnw?rel=0" frameborder="0" allowfullscreen></iframe>
+		<div class="row">
+		 <div class="col s6 m6">
+			<div class="card card-right section">
+			 <div class="video-container">
+				<iframe width="640" height="360" src="https://www.youtube.com/embed/LgvKyC0WcW8" frameborder="0" allowfullscreen></iframe>
+			 </div>
+			</div>
 		 </div>
 		</div>
-		<div class="card teal lighten-5 z-depth-3">
-		 <div class="row">
-			Title - Description of video
-		 </div>
-		 <div class="video-container">
-			<iframe width="853" height="480" src="//www.youtube.com/embed/Q8TXgCzxEnw?rel=0" frameborder="0" allowfullscreen></iframe>
-		 </div>
-		</div>
-		<div class="card teal lighten-5 z-depth-3">
-		 <div class="row">
-			Title - Description of video
-		 </div>
-		 <div class="video-container">
-			<iframe width="853" height="480" src="//www.youtube.com/embed/Q8TXgCzxEnw?rel=0" frameborder="0" allowfullscreen></iframe>
-		 </div>
-		</div>
-		</div>
+	 </div>
 	</div>
  </div>
-
-
-
+</section>
 @endsection

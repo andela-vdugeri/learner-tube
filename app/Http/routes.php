@@ -13,7 +13,7 @@
 
 
 Route::get('/', function () {
-    return view('index');
+    return view('welcome');
 });
 /**
  * Registration routes
@@ -35,18 +35,22 @@ Route::get('/logout', [
 
 Route::get('/login', [
   	'uses' => 'Auth\AuthController@getLogin',
-	'as'   =>  'Auth.login'
+	'as'   =>  'auth.login'
 ]);
 
 
-Route::post('/login', 'Auth\AuthController@postLogin');
+Route::post('/login', [
+  'uses' => 'Auth\AuthController@postLogin',
+  'as' => 'post.login'
+]);
 
 /**
  * user dashboard
  */
 Route::get('/dashboard',[
 	'uses' => 'HomeController@index',
-	'as'   => 'dashboard'
+	'as'   => 'dashboard',
+	'middleware' => ['auth']
 ]);
 
 Route::post('/video', [

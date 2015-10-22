@@ -1,45 +1,87 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Laravel</title>
+@extends('layouts.app')
 
-        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
 
-        <style>
-            html, body {
-                height: 100%;
-            }
+@section('navigation')
+@include('partials.landing-nav')
+@endsection
 
-            body {
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                display: table;
-                font-weight: 100;
-                font-family: 'Lato';
-            }
+@section('content')
+ <section>
+	<div class="row">
+		<div class="col s3 m3">
+		 <div class="section">
+		 <div class="card ">
+			<form>
+			 <div class="input-field">
+				<input id="search" type="search" required>
+				<label for="search"><i class="material-icons">search</i></label>
+				<i class="material-icons">close</i>
+			 </div>
+			</form>
+			<div class="row center">
+			 <a href="#">cat 1</a>
+			</div>
+			<div class="divider"></div>
+			<div class="row center">
+			 <a href="#">cat 2</a>
+			</div>
+			<div class="divider"></div>
+			<div class="row center">
+			 <a href="#">cat 3</a>
+			</div>
+		 </div>
+		</div>
+	 </div>
+	 <div class="col s8 m8">
+		<div class="section">
+		 <div class="col s4 m4">
+			<div class="card">
+			 <div class="video-container">
+			 <iframe width="640" height="360" src="https://www.youtube.com/embed/LgvKyC0WcW8" frameborder="0" allowfullscreen></iframe>
+			</div>
+			</div>
+			<div class="card">
+			 <div class="video-container">
+			 <iframe width="640" height="360" src="https://www.youtube.com/embed/LgvKyC0WcW8" frameborder="0" allowfullscreen></iframe>
+			</div>
+			</div>
+			<div class="card">
+			 <div class="video-container">
+			 <iframe width="640" height="360" src="https://www.youtube.com/embed/LgvKyC0WcW8" frameborder="0" allowfullscreen></iframe>
+			</div>
+			</div>
+		 </div>
+		 <div class="col s4 m4">
+			<div class="card">
+			 <div class="video-container">
+			  <iframe width="640" height="360" src="https://www.youtube.com/embed/LgvKyC0WcW8" frameborder="0" allowfullscreen></iframe>
+			 </div>
+			</div>
+			<div class="card">
+			 <div class="video-container">
+				<iframe width="640" height="360" src="https://www.youtube.com/embed/LgvKyC0WcW8" frameborder="0" allowfullscreen></iframe>
+			 </div>
+			</div>
+		 </div>
+		 <div class="col s4 m4">
+			<div class="card">
+			 <div class="video-container">
+				<iframe width="640" height="360" src="https://www.youtube.com/embed/LgvKyC0WcW8" frameborder="0" allowfullscreen></iframe>
+			 </div>
+			</div>
+			<div class="card">
+			 <div class="video-container">
+				<iframe width="640" height="360" src="https://www.youtube.com/embed/LgvKyC0WcW8" frameborder="0" allowfullscreen></iframe>
+			 </div>
+			</div>
+		 </div>
+		</div>
+	 </div>
+	</div>
+ </section>
+@endsection
 
-            .container {
-                text-align: center;
-                display: table-cell;
-                vertical-align: middle;
-            }
 
-            .content {
-                text-align: center;
-                display: inline-block;
-            }
-
-            .title {
-                font-size: 96px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <div class="content">
-                <div class="title">Welcome to Learner tube</div>
-            </div>
-        </div>
-    </body>
-</html>
+@section('footer')
+ @include('partials.footer')
+@endsection
