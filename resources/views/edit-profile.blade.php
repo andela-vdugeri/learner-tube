@@ -33,7 +33,7 @@
 							<div class="file-field input-field" id="image">
 							 <div class="btn">
 								<span>File</span>
-								<input type="file" id="file">
+								<input type="file" id="file" multiple>
 							 </div>
 								<input type="file" name="file" id="file">
 							</div>

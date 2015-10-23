@@ -102,7 +102,6 @@ class HomeController extends Controller
      {
 
          $url = "";
-
          $user = User::find($id);
 
          if ($request->has('file')) {
