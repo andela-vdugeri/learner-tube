@@ -138,14 +138,16 @@ return [
 	  	Laravel\Socialite\SocialiteServiceProvider::class,
 	  	Illuminate\View\ViewServiceProvider::class,
 
-        /*
-         * Application Service Providers...
-         */
+		/*
+	 	* Application Service Providers...
+	 	*/
 
-	  App\Providers\AppServiceProvider::class,
-	  App\Providers\AuthServiceProvider::class,
-	  App\Providers\EventServiceProvider::class,
-	  App\Providers\RouteServiceProvider::class,
+	  	App\Providers\AppServiceProvider::class,
+	  	App\Providers\AuthServiceProvider::class,
+	  	App\Providers\EventServiceProvider::class,
+	  	App\Providers\RouteServiceProvider::class,
+	  	JD\Cloudder\CloudderServiceProvider::class,
+	  	App\Providers\HelperServiceProvider::class,
 
     ],
 
@@ -196,7 +198,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
 	  	'Socialite' => Laravel\Socialite\Facades\Socialite::class,
-
+	  	'Cloudder' => JD\Cloudder\Facades\Cloudder::class,
     ],
 
 ];

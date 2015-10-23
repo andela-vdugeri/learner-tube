@@ -62,4 +62,40 @@ $(document).ready(function () {
     $('#profile-pic').on('click', function(){
         $('#file').click();
     });
+
+    var files = [];
+    $('#file').change(function(event){
+        event.preventDefault();
+
+        if(typeof(FileReader) !== "undefined") {
+            var imagePreview = $('#imagePreview');
+            imagePreview.html("");
+            var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.jpg|.jpeg|.gif|.png|.bmp)$/;
+            $($(this)[0].files).each(function(){
+               var file = $(this);
+                if(regex.test(file[0].name.toLowerCase())) {
+                    var reader = new FileReader();
+                    reader.onload = function(e){
+                        var img = $("<img/>");
+                        img.attr("style", "height:100px; width:100px");
+                        img.attr("src", e.target.result);
+                        imagePreview.append(img);
+                    };
+
+                    reader.readAsDataURL(file[0]);
+                } else {
+                    alert(file[0].name + "is not a valid image file");
+                    imagePreview.html("");
+                    return false;
+                }
+            });
+        }
+
+        for(var i = 0; i < $(this).get(0).files.length; i++) {
+            files.push($(this).get(0).files[i]);
+        }
+
+        $("input[name=file]").val(files);
+    });
+
 });

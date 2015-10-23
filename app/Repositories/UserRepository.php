@@ -45,7 +45,7 @@ class UserRepository {
 		return User::firstOrCreate([
 			'email' => $userData->email,
 			'name' => $userData->nickname? $userData->nickname : $userData->name ,
-			'password' => 'password'
+			'password' => bcrypt('password')
 		]);
 	}
 }

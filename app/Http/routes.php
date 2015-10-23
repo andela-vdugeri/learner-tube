@@ -39,13 +39,15 @@ Route::get('/logout', [
 
 Route::get('/login', [
   	'uses' => 'Auth\AuthController@getLogin',
-	'as'   =>  'auth.login'
+	'as'   =>  'auth.login',
+	'middleware' => ['guest']
 ]);
 
 
 Route::post('/login', [
   'uses' => 'Auth\AuthController@postLogin',
-  'as' => 'post.login'
+  'as' => 'post.login',
+  'middleware' => ['guest']
 ]);
 
 /**
@@ -64,11 +66,17 @@ Route::post('/video', [
 
 
 /**
- *
+ *Edit user profile
  */
 
 Route::get('profile/{id}', [
 	'uses' => 'HomeController@edit',
+	'as'   => 'profile.edit',
+	'middleware' => ['auth']
+]);
+
+Route::post('profile/{id}', [
+	'uses' => 'HomeController@update',
 	'as'	=> 'user.profile',
 	'middleware' => ['auth']
 ]);

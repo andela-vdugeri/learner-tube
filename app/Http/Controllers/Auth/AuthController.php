@@ -90,6 +90,7 @@ class AuthController extends Controller
 		]);
 
 		$this->create($request->all());
+		Auth::attempt($request->only('email', 'password'));
 
 		return redirect()
 		  ->route('dashboard')

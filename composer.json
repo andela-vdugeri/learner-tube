@@ -8,7 +8,8 @@
         "php": ">=5.5.9",
         "laravel/framework": "5.1.*",
         "doctrine/dbal": "^2.5",
-        "laravel/socialite": "~2.0"
+        "laravel/socialite": "~2.0",
+        "jrm2k6/cloudder": "^0.2.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
