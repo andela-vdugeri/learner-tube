@@ -14,7 +14,7 @@
 
 
 Route::get('/', [
-	'uses' => '\App\Http\Controllers\WelcomeController@index',
+	'uses' => 'WelcomeController@index',
 	'as'   =>  'welcome',
 	'middleware' => ['guest']
 ]);
@@ -62,6 +62,16 @@ Route::post('/video', [
 	'as'	=> 'post.video'
 ]);
 
+
+/**
+ *
+ */
+
+Route::get('profile/{id}', [
+	'uses' => 'HomeController@edit',
+	'as'	=> 'user.profile',
+	'middleware' => ['auth']
+]);
 
 /**
  * fetch categories

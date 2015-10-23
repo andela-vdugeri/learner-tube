@@ -53,7 +53,10 @@ p {
 }
 
 footer.page-footer {
-  margin: 0;
+    position: absolute;
+    bottom: 0;
+    margin: 0;
+    width: 100%;
 }
 
 .navbar-brand-right{

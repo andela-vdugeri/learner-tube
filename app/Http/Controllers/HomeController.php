@@ -85,7 +85,7 @@ class HomeController extends Controller
      */
     public function edit($id)
     {
-        //
+		return "controller contacted";
     }
 
     /**

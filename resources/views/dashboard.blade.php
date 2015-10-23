@@ -14,7 +14,7 @@
 			 </div>
 			 <div class="card-content">
 				<span class="card-title activator grey-text text-darken-4">{{ $user->name }}<i class="material-icons right">more_vert</i></span>
-				<p><a href="#">Edit Profile</a></p>
+				<p><a href="#editProfile" class="modal-trigger">Edit Profile</a></p>
 			 </div>
 			 <div class="card-reveal">
 				<span class="card-title grey-text text-darken-4">About<i class="material-icons right">close</i></span>
@@ -23,6 +23,48 @@
 			</div>
 	 </div>
 	</div>
+
+	<!-- profile update modal -->
+
+	<div id="editProfile" class="modal">
+	 <form method="post" action="{{ route('user.profile', $user->id) }}" id="edit-profile">
+		<input type="hidden" name="_token" value="{!! csrf_token() !!}">
+		<div class="modal-content">
+		 <div class="row">
+			<div class="col s12 m12 l12">
+			 <div class="col s6">
+				<div class="input-field">
+				 <input type="text" name="name" id="name" value="{{$user->name}}">
+				</div>
+			 </div>
+			 <div class="col s2 offset-s4 ">
+				 <div class="waves-effect waves-block waves-light">
+					<img src="{{$repo->getAvatarUrl($user)}}" height="100" width="100">
+				 </div>
+			 </div>
+			</div>
+		 </div>
+		 <div class="row">
+			<div class="input-field">
+			 <input type="email" name="email" id="email" value="{{ $user->email }}">
+			</div>
+			<div class="input-field">
+			 <textarea class="materialize-textarea" placeholder="about" name="about" id="about">{{ $user->about }}</textarea>
+			</div>
+			<div class="input-field">
+			 <input type="password" name="password" id="password" placeholder="password">
+			</div>
+		 </div>
+		 <div class="modal-footer">
+			<button class="btn waves-effect waves-light modal-close" type="submit" name="action">Update
+			 <i class="material-icons right">send</i>
+			</button>
+		 </div>
+		 </div>
+	 </form>
+	</div>
+	<!-- end of profile update modal -->
+
 	<div class="col s6 m6">
 	 <div class="section">
 		<div class="row">

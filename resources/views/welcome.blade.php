@@ -27,34 +27,34 @@
 			 </div>
 		 </div>
 	</div>
-	<div class="row">
-		<div class="col s3 m3">
-		 <div class="section">
-		 <div class="card ">
-			@foreach($categories as $category)
-			 <div class="row center">
-				<a href="categories/{{ $category->id }}">{{ $category->name }}</a>
-			 </div>
-			 <div class="divider"></div>
-			@endforeach
-		 </div>
-		</div>
-	 </div>
-	 <div class="col s8 m8">
-		<div class="row"></div>
-		<div class="section">
-		 @foreach($videos as $video)
-		 <div class="col s4 m4">
-			<div class="card">
-			 	<div class="video-container">
-				 <iframe width="640" height="360" src="{{ $video->url }}" frameborder="0" allowfullscreen></iframe>
-				</div>
-			</div>
-		 </div>
-		 @endforeach
-		</div>
-	 </div>
-	</div>
+	{{--<div class="row">--}}
+		{{--<div class="col s3 m3">--}}
+		 {{--<div class="section">--}}
+		 {{--<div class="card ">--}}
+			{{--@foreach($categories as $category)--}}
+			 {{--<div class="row center">--}}
+				{{--<a href="categories/{{ $category->id }}">{{ $category->name }}</a>--}}
+			 {{--</div>--}}
+			 {{--<div class="divider"></div>--}}
+			{{--@endforeach--}}
+		 {{--</div>--}}
+		{{--</div>--}}
+	 {{--</div>--}}
+	 {{--<div class="col s8 m8">--}}
+		{{--<div class="row"></div>--}}
+		{{--<div class="section">--}}
+		 {{--@foreach($videos as $video)--}}
+		 {{--<div class="col s4 m4">--}}
+			{{--<div class="card">--}}
+			 	{{--<div class="video-container">--}}
+				 {{--<iframe width="640" height="360" src="{{ $video->url }}" frameborder="0" allowfullscreen></iframe>--}}
+				{{--</div>--}}
+			{{--</div>--}}
+		 {{--</div>--}}
+		 {{--@endforeach--}}
+		{{--</div>--}}
+	 {{--</div>--}}
+	{{--</div>--}}
  </section>
 @endsection
 
