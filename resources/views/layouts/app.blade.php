@@ -22,7 +22,7 @@
  </nav>
 </div>
 
-<div>
+<div class="col s12 m6 l9">
  	@yield('content')
 </div>
 

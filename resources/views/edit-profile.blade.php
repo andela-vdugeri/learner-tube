@@ -22,7 +22,7 @@
 				 <form method="post" action="{{ route('user.profile', $user->id) }}" enctype="multipart/form-data" id="edit-profile">
 					<input type="hidden" name="_token" value="{!! csrf_token() !!}">
 					 <div class="row">
-						<div class="col s12 m12 l12">
+						<div class="col s12 m6 l9">
 						 <div class="col s6">
 							<div class="input-field">
 							 <i class="material-icons prefix">mode_edit</i>
@@ -38,7 +38,7 @@
 								<input type="file" name="file" id="file">
 							</div>
 							<div class="waves-effect waves-block waves-light" id="imagePreview">
-							 <img src="{{$repo->getAvatarUrl($user)}}" height="80" width="240" id="profile-pic">
+							 <img src="{{$user->avatar_url}}" height="80" width="240" id="profile-pic">
 							</div>
 						 </div>
 						</div>

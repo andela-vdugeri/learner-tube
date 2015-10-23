@@ -78,6 +78,8 @@ main{
     display: none;
 }
 
-#profile-pic{
-    //background-image: url();
+#imagePreview{
+    height: 100px;
+    width: 100px;
+
 }

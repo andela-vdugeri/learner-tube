@@ -36,7 +36,14 @@ class UserRepository {
 	 */
 	public function getAvatarUrl($user)
 	{
-		return "http://www.gravatar.com/avatar/" . md5(strtolower(trim($user->email))) . "?d=mm&s=140";
+		$userAvatar =  "http://www.gravatar.com/avatar/" . md5(strtolower(trim($user->email))) . "?d=mm&s=140";
+
+		//save avatar to database
+		$user->avatar_url = $userAvatar;
+		$user->save();
+
+		return $userAvatar;
+
 	}
 
 
