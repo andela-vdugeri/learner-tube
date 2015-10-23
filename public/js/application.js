@@ -63,7 +63,6 @@ $(document).ready(function () {
         $('#file').click();
     });
 
-    var files = [];
     $('#file').change(function(event){
         event.preventDefault();
 
@@ -91,11 +90,6 @@ $(document).ready(function () {
             });
         }
 
-        for(var i = 0; i < $(this).get(0).files.length; i++) {
-            files.push($(this).get(0).files[i]);
-        }
-
-        $("input[name=file]").val(files);
     });
 
 });

@@ -19,7 +19,7 @@
 			<div class="section">
 			 <div class="card card-panel">
 				<div id="editProfile">
-				 <form method="post" action="{{ route('user.profile', $user->id) }}" id="edit-profile">
+				 <form method="post" action="{{ route('user.profile', $user->id) }}" enctype="multipart/form-data" id="edit-profile">
 					<input type="hidden" name="_token" value="{!! csrf_token() !!}">
 					 <div class="row">
 						<div class="col s12 m12 l12">
@@ -33,7 +33,7 @@
 							<div class="file-field input-field" id="image">
 							 <div class="btn">
 								<span>File</span>
-								<input type="file" id="file" multiple>
+								{{--<input type="file" id="file" multiple>--}}
 							 </div>
 								<input type="file" name="file" id="file">
 							</div>

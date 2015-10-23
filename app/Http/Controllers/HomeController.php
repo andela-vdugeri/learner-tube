@@ -104,9 +104,10 @@ class HomeController extends Controller
          $url = "";
          $user = User::find($id);
 
-         if ($request->has('file')) {
+         if ($request['file']) {
              //upload file
-			 $file = $request->get('file');
+			 $file = $request['file'];
+
              $uploader->uploadImage($file);
              $url = $uploader->getShortUrl();
          }
