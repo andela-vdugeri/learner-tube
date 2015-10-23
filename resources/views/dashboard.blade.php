@@ -17,8 +17,8 @@
 				<p><a href="#editProfile" class="modal-trigger">Edit Profile</a></p>
 			 </div>
 			 <div class="card-reveal">
-				<span class="card-title grey-text text-darken-4">About<i class="material-icons right">close</i></span>
-				<p>Here is some more information about this person that is only revealed once clicked on.</p>
+				<span class="card-title grey-text text-darken-4">About Me<i class="material-icons right">close</i></span>
+				<p>{{ $user->about }}</p>
 			 </div>
 			</div>
 	 </div>
@@ -39,8 +39,17 @@
 				</div>
 			 </div>
 			 <div class="col s2 offset-s4 ">
+				<div class="file-field input-field" id="image">
+				 <div class="btn">
+					<span>File</span>
+					<input type="file" id="file">
+				 </div>
+				 <div class="file-path-wrapper">
+					<input class="file-path validate" type="text">
+				 </div>
+				</div>
 				 <div class="waves-effect waves-block waves-light">
-					<img src="{{$repo->getAvatarUrl($user)}}" height="100" width="100">
+					<img src="{{$repo->getAvatarUrl($user)}}" height="100" width="100" id="profile-pic">
 				 </div>
 			 </div>
 			</div>

@@ -55,4 +55,11 @@ $(document).ready(function () {
 
         });
     });
+
+
+
+    //change image click to file click
+    $('#profile-pic').on('click', function(){
+        $('#file').click();
+    });
 });
