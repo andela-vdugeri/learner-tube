@@ -34,6 +34,7 @@
 			<div class="col s12 m12 l12">
 			 <div class="col s6">
 				<div class="input-field">
+				 <i class="material-icons prefix">mode_edit</i>
 				 <input type="text" name="name" id="name" value="{{$user->name}}">
 				</div>
 			 </div>
@@ -46,12 +47,16 @@
 		 </div>
 		 <div class="row">
 			<div class="input-field">
+			 <i class="material-icons prefix">mode_edit</i>
 			 <input type="email" name="email" id="email" value="{{ $user->email }}">
 			</div>
 			<div class="input-field">
+			 <i class="material-icons prefix">mode_edit</i>
 			 <textarea class="materialize-textarea" placeholder="about" name="about" id="about">{{ $user->about }}</textarea>
+			 <label for="about">About Me</label>
 			</div>
 			<div class="input-field">
+			 <i class="material-icons prefix">mode_edit</i>
 			 <input type="password" name="password" id="password" placeholder="password">
 			</div>
 		 </div>

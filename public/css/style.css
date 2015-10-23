@@ -53,10 +53,7 @@ p {
 }
 
 footer.page-footer {
-    position: absolute;
-    bottom: 0;
     margin: 0;
-    width: 100%;
 }
 
 .navbar-brand-right{
@@ -65,4 +62,14 @@ footer.page-footer {
 
 .card-right{
     margin: 0 0 0 70px;
+}
+
+body{
+    display: flex !important;
+    min-height: 100vh !important;
+    flex-direction: column !important;
+}
+
+main{
+    flex: 1 0 auto;
 }
