@@ -64,7 +64,13 @@ Route::post('/video', [
 
 
 /**
- * Github authentication routes
+ * fetch categories
+ */
+
+Route::get('categories/{id}', 'WelcomeController@categories');
+
+/**
+ * Social authentication routes
  */
 
 Route::get('{provider}', 'Auth\AuthController@doSocial');

@@ -88,4 +88,13 @@ class WelcomeController extends Controller
     {
         //
     }
+
+
+	public function categories($id)
+	{
+		$videos = Video::where('category_id', '=', $id);
+		$categories = Category::all();
+
+		//return redirect('/')->with('videos', );
+	}
 }

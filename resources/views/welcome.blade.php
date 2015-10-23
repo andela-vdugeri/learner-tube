@@ -31,13 +31,6 @@
 		<div class="col s3 m3">
 		 <div class="section">
 		 <div class="card ">
-			<form>
-			 <div class="input-field">
-				<input id="search" type="search" required>
-				<label for="search"><i class="material-icons">search</i></label>
-				<i class="material-icons">close</i>
-			 </div>
-			</form>
 			@foreach($categories as $category)
 			 <div class="row center">
 				<a href="categories/{{ $category->id }}">{{ $category->name }}</a>
@@ -48,6 +41,7 @@
 		</div>
 	 </div>
 	 <div class="col s8 m8">
+		<div class="row"></div>
 		<div class="section">
 		 @foreach($videos as $video)
 		 <div class="col s4 m4">
