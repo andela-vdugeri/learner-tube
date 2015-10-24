@@ -14,9 +14,9 @@
 
 
 Route::get('/', [
-	'uses' => 'WelcomeController@index',
-	'as'   =>  'welcome',
-	'middleware' => ['guest']
+	'uses' 		=> 'WelcomeController@index',
+	'as'   		=>  'welcome',
+	'middleware'=> ['guest']
 ]);
 
 /**
@@ -38,29 +38,29 @@ Route::get('/logout', [
 ]);
 
 Route::get('/login', [
-  	'uses' => 'Auth\AuthController@getLogin',
-	'as'   =>  'auth.login',
-	'middleware' => ['guest']
+  	'uses' 		=> 'Auth\AuthController@getLogin',
+	'as'   		=>  'auth.login',
+	'middleware'=> ['guest']
 ]);
 
 
 Route::post('/login', [
-  'uses' => 'Auth\AuthController@postLogin',
-  'as' => 'post.login',
-  'middleware' => ['guest']
+  'uses' 		=> 'Auth\AuthController@postLogin',
+  'as' 			=> 'post.login',
+  'middleware' 	=> ['guest']
 ]);
 
 /**
  * user dashboard
  */
 Route::get('/dashboard',[
-	'uses' => 'HomeController@index',
-	'as'   => 'dashboard',
-	'middleware' => ['auth']
+	'uses' 			=> 'HomeController@index',
+	'as'   			=> 'dashboard',
+	'middleware' 	=> ['auth']
 ]);
 
 Route::post('/video', [
-	'uses' 	=> 'HomeController@store',
+	'uses' 	=> 'VideoController@store',
 	'as'	=> 'post.video'
 ]);
 
@@ -70,15 +70,15 @@ Route::post('/video', [
  */
 
 Route::get('profile/{id}', [
-	'uses' => 'HomeController@edit',
-	'as'   => 'profile.edit',
-	'middleware' => ['auth']
+	'uses' 			=> 'UserProfileController@edit',
+	'as'   			=> 'profile.edit',
+	'middleware' 	=> ['auth']
 ]);
 
 Route::post('profile/{id}', [
-	'uses' => 'HomeController@update',
-	'as'	=> 'user.profile',
-	'middleware' => ['auth']
+	'uses' 			=> 'HomeController@update',
+	'as'			=> 'user.profile',
+	'middleware' 	=> ['auth']
 ]);
 
 /**
@@ -86,6 +86,15 @@ Route::post('profile/{id}', [
  */
 
 Route::get('categories/{id}', 'WelcomeController@categories');
+
+/**
+ * View videos
+ */
+
+Route::get('/video/{id}',[
+	'uses' 	=> 'VideoController@show',
+	'as'	=> 'show.video'
+]);
 
 /**
  * Social authentication routes

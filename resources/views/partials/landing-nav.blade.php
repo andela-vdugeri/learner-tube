@@ -4,6 +4,6 @@
  <li><a href="{{ route('auth.login') }}" class="white-text">Login</a></li>
 </ul>
 <ul class="side-nav" id="mobile">
- <li><a href="#">Register</a></li>
- <li><a href="#">Login</a></li>
+ <li><a href="{{ route('auth.register') }}">Register</a></li>
+ <li><a href="{{ route('auth.login') }}">Login</a></li>
 </ul>

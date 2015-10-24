@@ -2,12 +2,17 @@
 
 
 @section('navigation')
-@include('partials.landing-nav')
+ @if($user)
+	@include('partials.home-nav')
+ @else
+	@include('partials.landing-nav')
+ @endif
 @endsection
 
 @section('content')
  <section>
 	<div class="row">
+	 @if(!$user)
 		<div class="row card-panel">
 			 <div class="card-content">
 				<div class="large">
@@ -26,6 +31,7 @@
 				</div>
 			 </div>
 		 </div>
+		@endif
 	</div>
 	<div class="row">
 		<div class="col s3 m3">
@@ -44,11 +50,20 @@
 		<div class="row"></div>
 		<div class="section">
 		 @foreach($videos as $video)
-		 <div class="col s4 m4">
+		 <div class="col s6 m6">
 			<div class="card">
-			 	<div class="video-container">
-				 <iframe width="640" height="360" src="{{ $video->url }}" frameborder="0" allowfullscreen></iframe>
-				</div>
+			 <div class="card-image waves-effect waves-block waves-light">
+				<a href="{{route('show.video', $video->id)}}" >
+				 <img src="https://img.youtube.com/vi/{{ $video->url }}/hqdefault.jpg"/>
+				 </a>
+			 </div>
+			 <div class="card-content">
+				<span class="card-title activator grey-text text-darken-4">{{ $video->title }}<i class="material-icons right">more_vert</i></span>
+			 </div>
+			 <div class="card-reveal">
+				<span class="card-title grey-text text-darken-4">{{ $video->title }}<i class="material-icons right">close</i></span>
+				<p>{{ $video->description }}</p>
+			 </div>
 			</div>
 		 </div>
 		 @endforeach

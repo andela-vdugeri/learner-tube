@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
+use app\Helpers\UrlParser;
+use App\Video;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class VideoController extends Controller
 {
@@ -15,7 +19,10 @@ class VideoController extends Controller
      */
     public function index()
     {
-        //
+        $videos = Video::all();
+		$user = Auth::user();
+		$categories = Category::all();
+		return view('dashboard', compact('videos', 'user', 'categories'));
     }
 
     /**
@@ -28,15 +35,33 @@ class VideoController extends Controller
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+	/**
+	 * @param Request $request
+	 * @param Video $video
+	 * @param UrlParser $parser
+	 * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\RedirectResponse|
+	 * \Symfony\Component\HttpFoundation\Response
+	 */
+    public function store(Request $request, Video $video, UrlParser $parser)
     {
-        //
+		if ($request->ajax()) {
+			$user = Auth::user();
+
+			//parse the video url
+			$url = $parser->parseUrl($request->get('videoUrl'));
+			//create the resource
+			$video->title       = $request->get('title');
+			$video->url         = $url;
+			$video->description = $request->get('description');
+			$video->category_id = $request->get('videoCategory');
+			$video->user_id     = $user->id;
+
+			$video->save();
+
+			return response(json_encode($request->all()));
+		}
+
+		return redirect()->action('HomeController@index');
     }
 
     /**
@@ -47,7 +72,10 @@ class VideoController extends Controller
      */
     public function show($id)
     {
-        //
+		$user = Auth::check();
+		$categories = Category::all();
+		$video = Video::find($id);
+        return view('videos.show', compact('user', 'video', 'categories'));
     }
 
     /**

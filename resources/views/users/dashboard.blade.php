@@ -35,12 +35,12 @@
 		 </div>
 		</div>
 
-		<!-- modal -->
+		<!-- Video modal -->
 		<div id="addVideo" class="modal">
 		 <form method="post" action="{{ route('post.video') }}" id="post-video">
 			<input type="hidden" name="_token" value="{!! csrf_token() !!}">
 		 <div class="modal-content">
-			<h5>Post a video</h5>
+			<h5>Post a link to a youtube video</h5>
 			<div class="input-field">
 			 <input type="text" name="title" id="title" placeholder="title">
 			</div>
@@ -73,18 +73,18 @@
 			</div>
 			@foreach($user->videos as $video)
 			 <div class="col s6 m6">
-				<div class="card section">
-				 <div class="video-container">
-					<a href="#" >
+				<div class="card">
+				 <div class="card-image waves-effect waves-block waves-light">
+					<a href="{{route('show.video', $video->id)}}" >
 					 <img src="https://img.youtube.com/vi/{{ $video->url }}/hqdefault.jpg"/>
 					</a>
 				 </div>
-				</div>
-				<div class="row">
-				 <div class="col s8 offset-s3">
-					{{ $video->description }}
+				 <div class="card-content">
+					<span class="card-title activator grey-text text-darken-4">{{ $video->title }}<i class="material-icons right">more_vert</i></span>
 				 </div>
-				 <div>
+				 <div class="card-reveal">
+					<span class="card-title grey-text text-darken-4">{{ $video->title }}<i class="material-icons right">close</i></span>
+					<p>{{ $video->description }}</p>
 				 </div>
 				</div>
 			 </div>
