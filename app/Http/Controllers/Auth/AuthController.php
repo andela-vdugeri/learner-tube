@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\AuthenticateUser;
+use App\Repositories\UserRepository;
 use App\User;
 use Validator;
 use Illuminate\Http\Request;
@@ -81,17 +82,28 @@ class AuthController extends Controller
 		return view('auth.login');
 	}
 
-	public function postRegister(Request $request)
+	public function postRegister(Request $request, UserRepository $repo)
 	{
-		$this->validate($request, [
+
+		$validation = Validator::make($request->all(), [
 		  'email' 	=> 'required|unique:users|email|max:255',
 		  'name'  	=> 'required|unique:users|max:255',
 		  'password'=> 'required|confirmed|min:6'
 		]);
 
+		if($validation->fails()) {
+			return redirect()->back()->withInput()->WithErrors($validation->errors());
+		}
+//		$this->validate($request, [
+//		  'email' 	=> 'required|unique:users|email|max:255',
+//		  'name'  	=> 'required|unique:users|max:255',
+//		  'password'=> 'required|confirmed|min:6'
+//		]);
+
 		$this->create($request->all());
 		Auth::attempt($request->only('email', 'password'));
-
+		$user = Auth::user();
+		$avatarUrl = $repo->getAvatarUrl($user);
 		return redirect()
 		  ->route('dashboard')
 		  ->with('message','Your account has been created');
@@ -123,7 +135,11 @@ class AuthController extends Controller
 
 	public function userAuthenticated($user)
 	{
-		return redirect('/dashboard');
+
+		$email = $user->email;
+		$name = $user->nickname ? $user->nickname : $user->name;
+
+		return redirect('/register')->withInput(['email' =>$email, 'name' => $name]);
 	}
 
 

@@ -33,7 +33,7 @@
 		 <div class="card ">
 			@foreach($categories as $category)
 			 <div class="row center">
-				<a href="categories/{{ $category->id }}">{{ $category->name }}</a>
+				<a href="{{ url('categories', $category->id) }}">{{ $category->name }}</a>
 			 </div>
 			 <div class="divider"></div>
 			@endforeach

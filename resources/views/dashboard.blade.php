@@ -29,8 +29,10 @@
 
 	<div class="col s6 m6">
 	 <div class="section">
-		<div class="row">
-		 <a class="btn-floating btn-large waves-effect waves-light red right modal-trigger" href="#addVideo"><i class="material-icons">add</i></a>
+		<div class="row float-up">
+		 <div class="col s12 m6 l9 ">
+			<a class="btn-floating btn-large waves-effect waves-light red right modal-trigger" href="#addVideo"><i class="material-icons">add</i></a>
+		 </div>
 		</div>
 
 		<!-- modal -->
@@ -66,18 +68,28 @@
 		<!-- end of modal -->
 
 		<div class="row" id="videos">
-		 @foreach($user->videos as $video)
-			<div class="col s6 m6">
-			 <div class="card card-right section">
-				<div class="video-container">
-				 <iframe width="640" height="480" src="{{ $video->url }}" frameborder="0" allowfullscreen></iframe>
+		 <div class="section">
+			<div class="section">
+			</div>
+			@foreach($user->videos as $video)
+			 <div class="col s6 m6">
+				<div class="card section">
+				 <div class="video-container">
+					<a href="#" >
+					 <img src="https://img.youtube.com/vi/{{ $video->url }}/hqdefault.jpg"/>
+					</a>
+				 </div>
 				</div>
-				<div class="row center">
-				 {{ $video->description }}
+				<div class="row">
+				 <div class="col s8 offset-s3">
+					{{ $video->description }}
+				 </div>
+				 <div>
+				 </div>
 				</div>
 			 </div>
-			</div>
-		 @endforeach
+			@endforeach
+		 </div>
 	 </div>
 	 </div>
 	</div>

@@ -4,6 +4,7 @@ namespace app\Http\Controllers;
 
 use App\Category;
 use app\Helpers\UploadImage;
+use app\Helpers\UrlParser;
 use App\Repositories\UserRepository;
 use App\User;
 use App\Video;
@@ -40,25 +41,28 @@ class HomeController extends Controller
          //
      }
 
-     /**
-     * @param VideoFormRequest $request
+    /**
+     * @param Request $request
      * @param Video $video
-     * @return \Illuminate\Http\RedirectResponse
+     * @param UrlParser $parser
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|
+     * \Illuminate\Http\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
-     public function store(Request $request, Video $video)
+     public function store(Request $request, Video $video, UrlParser $parser)
      {
          //retrieve the authenticated user
 
         if ($request->ajax()) {
             $user = Auth::user();
 
-
+            //parse the video url
+            $url = $parser->parseUrl($request->get('videoUrl'));
             //create the resource
             $video->title       = $request->get('title');
-            $video->url         = $request->get('videoUrl');
+            $video->url         = $url;
             $video->description = $request->get('description');
             $video->category_id = $request->get('videoCategory');
-            $video->user_id        = $user->id;
+            $video->user_id     = $user->id;
 
             $video->save();
 
@@ -100,13 +104,12 @@ class HomeController extends Controller
      */
      public function update(Request $request, $id, UploadImage $uploader)
      {
-
          $url = "";
          $user = User::find($id);
 
          if ($request['file']) {
              //upload file
-			 $file = $request['file'];
+             $file = $request['file'];
 
              $uploader->uploadImage($file);
              $url = $uploader->getShortUrl();

@@ -7,6 +7,7 @@ use App\Video;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 
 class WelcomeController extends Controller
 {
@@ -92,9 +93,9 @@ class WelcomeController extends Controller
 
 	public function categories($id)
 	{
-		$videos = Video::where('category_id', '=', $id);
+		$videos = DB::table('videos')->where('category_id', $id)->get();
 		$categories = Category::all();
 
-		//return redirect('/')->with('videos', );
+		return view('welcome', compact('videos', 'categories'));
 	}
 }

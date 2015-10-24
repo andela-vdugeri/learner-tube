@@ -81,5 +81,10 @@ main{
 #imagePreview{
     height: 100px;
     width: 100px;
+}
 
+.float-up {
+    position: absolute;
+    top: 70px;
+    left: 1020px;
 }

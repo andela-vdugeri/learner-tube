@@ -52,9 +52,10 @@ class AuthenticateUser {
 		}
 
 
-		$user = $this->users->findByUsernameOrCreate($this->getUser($provider));
+		//$user = $this->users->findByUsernameOrCreate($this->getUser($provider));
+		$user = $this->getUser($provider);
 
-		$this->auth->login($user, true);
+		//$this->auth->login($user, true);
 
 		return $listener->userAuthenticated($user);
 	}
