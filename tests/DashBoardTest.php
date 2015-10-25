@@ -15,4 +15,38 @@ class DashBoardTest extends TestCase
     {
         $this->assertTrue(true);
     }
+
+	public function testDashboardLoads()
+	{
+
+		$user = factory(\Tubr\User::class)->create();
+		$this->actingAs($user);
+
+		$this->call('GET', '/dashboard');
+
+		$this->assertResponseOk();
+	}
+
+
+	public function testUserDetailsLoadOnDashboard()
+	{
+		$user = factory(\Tubr\User::class)->create();
+		$this->actingAs($user);
+
+		$this->call('GET', '/dashboard');
+		$this->seePageIs('/dashboard');
+		$this->assertViewHas('user');
+
+	}
+
+	public function testCategoriesLoadOnPage()
+	{
+		$user = factory(\Tubr\User::class)->create();
+		$this->actingAs($user);
+
+		$this->call('GET', '/dashboard');
+		$this->seePageIs('/dashboard');
+
+		$this->assertViewHas('categories');
+	}
 }
