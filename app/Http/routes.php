@@ -76,7 +76,7 @@ Route::get('profile/{id}', [
 ]);
 
 Route::post('profile/{id}', [
-	'uses' 			=> 'HomeController@update',
+	'uses' 			=> 'UserProfileController@update',
 	'as'			=> 'user.profile',
 	'middleware' 	=> ['auth']
 ]);

@@ -2,7 +2,7 @@
 
 namespace Tubr\Http\Controllers;
 
-use app\Helpers\UploadImage;
+use Tubr\Helpers\UploadImage;
 use Tubr\Repositories\UserRepository;
 use Illuminate\Http\Request;
 use Tubr\Http\Requests;
