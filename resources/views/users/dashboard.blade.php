@@ -51,7 +51,7 @@
 			 <input type="text" name="url" id="url" placeholder="video url">
 			</div>
 			<div class="input-field">
-			 <select name="category" id="category">
+			 <select name="category" id="category" class="browser-default">
 				@foreach($categories as $category)
 				 <option value="{{ $category->id }}">{{ $category->name }}</option>
 				@endforeach
