@@ -142,12 +142,12 @@ return [
 	 	* Application Service Providers...
 	 	*/
 
-	  	App\Providers\AppServiceProvider::class,
-	  	App\Providers\AuthServiceProvider::class,
-	  	App\Providers\EventServiceProvider::class,
-	  	App\Providers\RouteServiceProvider::class,
+	  	Tubr\Providers\AppServiceProvider::class,
+	  	Tubr\Providers\AuthServiceProvider::class,
+	  	Tubr\Providers\EventServiceProvider::class,
+	  	Tubr\Providers\RouteServiceProvider::class,
 	  	JD\Cloudder\CloudderServiceProvider::class,
-	  	App\Providers\HelperServiceProvider::class,
+	  	Tubr\Providers\HelperServiceProvider::class,
 
     ],
 

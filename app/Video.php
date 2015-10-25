@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace Tubr;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -20,11 +20,11 @@ class Video extends Model
 
 	public function owner()
 	{
-		return $this->belongsTo('App\User');
+		return $this->belongsTo('Tubr\User');
 	}
 
 	public function category()
 	{
-		return $this->belongsTo('App\Category');
+		return $this->belongsTo('Tubr\Category');
 	}
 }

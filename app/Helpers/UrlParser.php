@@ -6,7 +6,7 @@
  * Time: 10:57 AM
  */
 
-namespace app\Helpers;
+namespace Tubr\Helpers;
 
 
 class UrlParser {

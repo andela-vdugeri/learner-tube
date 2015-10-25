@@ -1,5 +1,5 @@
 suites:
     main:
-        namespace: App
-        psr4_prefix: App
+        namespace: Tubr
+        psr4_prefix: Tubr
         src_path: app

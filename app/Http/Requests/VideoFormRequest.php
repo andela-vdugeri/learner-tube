@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Requests;
+namespace Tubr\Http\Requests;
 
-use App\Http\Requests\Request;
+use Tubr\Http\Requests\Request;
 use Illuminate\Support\Facades\Auth;
 
 class VideoFormRequest extends Request

@@ -6,7 +6,7 @@
  * Time: 3:10 PM
  */
 
-namespace app\Helpers;
+namespace Tubr\Helpers;
 
 use Cloudder;
 

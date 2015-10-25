@@ -1,13 +1,13 @@
 <?php
 
-namespace app\Http\Controllers;
+namespace Tubr\Http\Controllers;
 
-use App\Category;
-use App\Http\Requests;
-use App\Repositories\UserRepository;
-use App\Video;
+use Tubr\Category;
+use Tubr\Http\Requests;
+use Tubr\Repositories\UserRepository;
+use Tubr\Video;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\Controller;
+use Tubr\Http\Controllers\Controller;
 
 class HomeController extends Controller
 {

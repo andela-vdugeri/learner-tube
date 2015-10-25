@@ -6,9 +6,9 @@
  * Time: 1:01 PM
  */
 
-namespace App;
+namespace Tubr;
 
-use App\Repositories\UserRepository;
+use Tubr\Repositories\UserRepository;
 use Illuminate\Contracts\Auth\Guard;
 use Laravel\Socialite\Contracts\Factory as Socialite;
 

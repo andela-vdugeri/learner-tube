@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace Tubr;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
@@ -43,7 +43,7 @@ class User extends Model implements AuthenticatableContract,
 	 */
 	public function videos()
 	{
-		return $this->hasMany('App\Video');
+		return $this->hasMany('Tubr\Video');
 	}
 
 }

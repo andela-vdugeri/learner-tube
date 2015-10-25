@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Tubr\Http\Controllers;
 
-use App\Category;
-use App\Video;
+use Tubr\Category;
+use Tubr\Video;
 use Illuminate\Http\Request;
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
+use Tubr\Http\Requests;
+use Tubr\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 

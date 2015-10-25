@@ -6,7 +6,7 @@
  * Time: 3:17 PM
  */
 
-namespace app\Helpers;
+namespace Tubr\Helpers;
 
 
 class UploadImage {

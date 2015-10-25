@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Tubr\Http\Controllers;
 
-use App\Category;
-use app\Helpers\UrlParser;
-use App\Video;
+use Tubr\Category;
+use Tubr\Helpers\UrlParser;
+use Tubr\Video;
 use Illuminate\Http\Request;
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
+use Tubr\Http\Requests;
+use Tubr\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
 class VideoController extends Controller

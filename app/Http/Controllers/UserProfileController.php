@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Tubr\Http\Controllers;
 
 use app\Helpers\UploadImage;
-use App\Repositories\UserRepository;
+use Tubr\Repositories\UserRepository;
 use Illuminate\Http\Request;
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
-use App\User;
+use Tubr\Http\Requests;
+use Tubr\Http\Controllers\Controller;
+use Tubr\User;
 
 class UserProfileController extends Controller
 {

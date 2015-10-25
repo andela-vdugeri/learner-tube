@@ -6,11 +6,11 @@
  * Time: 5:37 PM
  */
 
-namespace App\Repositories;
+namespace Tubr\Repositories;
 
 
 
-use App\User;
+use Tubr\User;
 
 class UserRepository {
 

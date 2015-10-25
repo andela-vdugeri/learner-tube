@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace Tubr\Http\Controllers\Auth;
 
-use App\AuthenticateUser;
-use App\Repositories\UserRepository;
-use App\User;
+use Tubr\AuthenticateUser;
+use Tubr\Repositories\UserRepository;
+use Tubr\User;
 use Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\Controller;
+use Tubr\Http\Controllers\Controller;
 use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;

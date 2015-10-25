@@ -6,7 +6,7 @@
  * Time: 3:12 PM
  */
 
-namespace app\Helpers;
+namespace Tubr\Helpers;
 
 class UrlShortener
 {

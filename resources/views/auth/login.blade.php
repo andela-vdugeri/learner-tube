@@ -31,7 +31,7 @@
 				<div class="col s2">
 				 <a href="{{ url('github') }}" class="fa fa-github fa-2x"></a>
 				</div>
-				<button class="btn waves-effect waves-light right cyan" type="submit" name="action">Sign Up
+				<button class="btn waves-effect waves-light right cyan" type="submit" name="action">Log In
 				 <i class="material-icons right">send</i>
 				</button>
 			 </div>

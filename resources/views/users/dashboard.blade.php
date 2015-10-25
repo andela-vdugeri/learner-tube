@@ -97,4 +97,3 @@
 </section>
 @endsection
 
-<script type="text/javascript" src="{{ asset('js/application.js') }}"></script>

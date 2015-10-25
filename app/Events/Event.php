@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Events;
+namespace Tubr\Events;
 
 abstract class Event
 {
