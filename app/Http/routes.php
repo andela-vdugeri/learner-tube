@@ -20,17 +20,15 @@ Route::get('/', [
 ]);
 
 /**
- * Registration routes
+ * Authentication routes
  */
 Route::get('/register', [
   'uses' => 'Auth\AuthController@getRegister',
   'as'   => 'auth.register'
 ]);
+
 Route::post('/register' , 'Auth\AuthController@postRegister');
 
-/**
- * Authentication routes
- */
 
 Route::get('/logout', [
   	'uses' => 'Auth\AuthController@getLogout',

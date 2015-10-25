@@ -23,10 +23,6 @@
 			</div>
 	 </div>
 	</div>
-
-	<!-- profile update modal -->
-
-
 	<div class="col s6 m6">
 	 <div class="section">
 		<div class="row float-up">
@@ -35,7 +31,7 @@
 		 </div>
 		</div>
 
-		<!-- Video modal -->
+		<!-- Video upload modal -->
 		<div id="addVideo" class="modal">
 		 <form method="post" action="{{ route('post.video') }}" id="post-video">
 			<input type="hidden" name="_token" value="{!! csrf_token() !!}">

@@ -15,59 +15,65 @@ use Laravel\Socialite\Contracts\Factory as Socialite;
 class AuthenticateUser {
 
 
-	/**
+	 /**
 	 * @var UserRepository
 	 */
-	private $users;
+	 private $users;
 
-	/**
+	 /**
 	 * @var Socialite
 	 */
-	private $socialite;
+	 private $socialite;
 
 
-	/**
+	 /**
 	 * @var Guard
 	 */
-	private $auth;
+	 private $auth;
 
-	/**
+	 /**
 	 * @param UserRepository $users
 	 * @param Socialite $socialite
 	 * @param Guard $auth
 	 */
-	public function __construct(UserRepository $users, Guard $auth,Socialite $socialite)
-	{
+	 public function __construct(UserRepository $users, Guard $auth,Socialite $socialite)
+	 {
 		$this->users = $users;
 		$this->socialite = $socialite;
 		$this->auth = $auth;
-	}
+	 }
 
-	public function execute($hasCode, $listener, $provider)
-	{
+	 /**
+	 * @param $hasCode
+	 * @param $listener
+	 * @param $provider
+	 * @return \Symfony\Component\HttpFoundation\RedirectResponse
+	 */
+	 public function execute($hasCode, $listener, $provider)
+	 {
 
 		if(! $hasCode) {
 
 			return $this->getAuthorization($provider);
 		}
 
-
-		//$user = $this->users->findByUsernameOrCreate($this->getUser($provider));
 		$user = $this->getUser($provider);
 
-		//$this->auth->login($user, true);
-
 		return $listener->userAuthenticated($user);
-	}
+	 }
 
 
-	public function getAuthorization($provider)
-	{
+	 /**
+	 * @param $provider
+	 * @return \Symfony\Component\HttpFoundation\RedirectResponse
+	 */
+	 public function getAuthorization($provider)
+	 {
 		return $this->socialite->driver($provider)->redirect();
-	}
+	 }
 
-	public function getUser($provider)
-	{
+	 public function getUser($provider)
+	 {
 		return $this->socialite->driver($provider)->user();
-	}
+	 }
 }

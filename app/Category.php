@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * @author: Verem Dugeri
+ *
+ * Category model
+ */
 namespace Tubr;
 
 use Illuminate\Database\Eloquent\Model;
@@ -8,11 +12,19 @@ class Category extends Model
 {
 
 
-	protected  $fillable = ['name'];
+	 /**
+	 * @var array
+	 */
+	 protected  $fillable = ['name'];
 
 
-	public function video()
-	{
+	 /**
+	 * Relationship between videos and categories table
+	 *
+	 * @return \Illuminate\Database\Eloquent\Relations\HasMany
+	 */
+	 public function video()
+	 {
 		return $this->hasMany('Verem\Tube\Video');
-	}
+	 }
 }

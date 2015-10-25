@@ -15,27 +15,27 @@ use Tubr\User;
 class UserRepository {
 
 
-	/**
+	 /**
 	 * @var User $user
 	 */
-	private $user;
+	 private $user;
 
-	/**
+	 /**
 	 * Construct the user Repository instance
 	 * @param User $user
 	 */
-	public function __construct(User $user)
-	{
+	 public function __construct(User $user)
+	 {
 		$this->user = $user;
-	}
+	 }
 
-	/**
+	 /**
 	 * Get the user avatar
 	 *
 	 * @return string
 	 */
-	public function getAvatarUrl($user)
-	{
+	 public function getAvatarUrl($user)
+	 {
 		$userAvatar =  "http://www.gravatar.com/avatar/" . md5(strtolower(trim($user->email))) . "?d=mm&s=140";
 
 		//save avatar to database
@@ -44,11 +44,14 @@ class UserRepository {
 
 		return $userAvatar;
 
-	}
+	 }
 
-
-	public function findByUsernameOrCreate($userData)
-	{
+	 /**
+	 * @param $userData
+	 * @return static
+	 */
+	 public function findByUsernameOrCreate($userData)
+	 {
 
 		$user = User::firstOrNew([
 			'email' => $userData->email,
@@ -59,5 +62,5 @@ class UserRepository {
 		$user->save();
 
 		return $user;
-	}
+	 }
 }

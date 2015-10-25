@@ -10,7 +10,7 @@ namespace Tubr\Helpers;
 
 class UrlShortener
 {
-    /**
+     /**
      * Api version
      * @var string
      */

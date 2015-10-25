@@ -2,54 +2,44 @@
 
 namespace Tubr\Http\Controllers;
 
-use Tubr\Category;
-use Tubr\Helpers\UrlParser;
 use Tubr\Video;
-use Illuminate\Http\Request;
+use Tubr\Category;
 use Tubr\Http\Requests;
-use Tubr\Http\Controllers\Controller;
+use Tubr\Helpers\UrlParser;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Tubr\Http\Controllers\Controller;
 
 class VideoController extends Controller
 {
-    /**
+     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+     public function index()
+     {
         $videos = Video::all();
 		$user = Auth::user();
 		$categories = Category::all();
 		return view('dashboard', compact('videos', 'user', 'categories'));
-    }
+     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-	/**
+	 /**
 	 * @param Request $request
 	 * @param Video $video
 	 * @param UrlParser $parser
 	 * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\RedirectResponse|
 	 * \Symfony\Component\HttpFoundation\Response
 	 */
-    public function store(Request $request, Video $video, UrlParser $parser)
-    {
+     public function store(Request $request, Video $video, UrlParser $parser)
+     {
 		if ($request->ajax()) {
+
 			$user = Auth::user();
 
-			//parse the video url
 			$url = $parser->parseUrl($request->get('videoUrl'));
-			//create the resource
+
 			$video->title       = $request->get('title');
 			$video->url         = $url;
 			$video->description = $request->get('description');
@@ -62,53 +52,21 @@ class VideoController extends Controller
 		}
 
 		return redirect()->action('HomeController@index');
-    }
+     }
 
-    /**
+     /**
      * Display the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
+     public function show($id)
+     {
 		$user = Auth::check();
 		$categories = Category::all();
 		$video = Video::find($id);
+
         return view('videos.show', compact('user', 'video', 'categories'));
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
+     }
+	
 }
