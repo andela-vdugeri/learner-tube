@@ -10,7 +10,7 @@
 		<div class="section">
 			<div class="card">
 			 <div class="card-image waves-effect waves-block waves-light">
-				<img class="activator" src="{{$user->avatar_url}}" width="120" height="220" >
+				<img class="activator" src="{{$user->avatar_url}}" width="120" height="260" >
 			 </div>
 			 <div class="card-content">
 				<span class="card-title activator grey-text text-darken-4">{{ $user->name }}<i class="material-icons right">more_vert</i></span>
