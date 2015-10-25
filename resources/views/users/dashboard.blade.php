@@ -52,6 +52,7 @@
 			</div>
 			<div class="input-field">
 			 <select name="category" id="category" class="browser-default">
+				<option value="" selected>Select a category</option>
 				@foreach($categories as $category)
 				 <option value="{{ $category->id }}">{{ $category->name }}</option>
 				@endforeach
