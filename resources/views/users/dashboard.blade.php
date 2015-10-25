@@ -31,7 +31,7 @@
 	 <div class="section">
 		<div class="row float-up">
 		 <div class="col s12 m6 l9 ">
-			<a class="btn-floating btn-large waves-effect waves-light red right modal-trigger" href="#addVideo"><i class="material-icons">add</i></a>
+			<a class="btn-floating btn-large waves-effect waves-light red right modal-trigger" href="#addVideo" name="add"><i class="material-icons">add</i></a>
 		 </div>
 		</div>
 

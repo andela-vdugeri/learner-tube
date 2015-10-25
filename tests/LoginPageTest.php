@@ -1,5 +1,6 @@
 <?php
 
+use Tubr\User as User;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
@@ -66,10 +67,23 @@ class LoginPageTest extends TestCase
 	 */
 	public function testLoginFormWorksCorrectly()
 	{
+		//create a user
+		$this->createUser();
+
 		$this->visit('/login')
-			->type('danverem@gmail.com','email')
+			->type('john@doe.com','email')
 			->type('password', 'password')
 			->press('action')
 			->seePageIs('/dashboard');
+	}
+
+
+	public function createUser()
+	{
+		User::create([
+		  'name' => 'johndoe',
+		  'email' => 'john@doe.com',
+		  'password'=> bcrypt('password')
+		]);
 	}
 }
