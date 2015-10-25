@@ -28,7 +28,8 @@
 
 @yield('footer')
 <!--  Scripts-->
-<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="{{ asset('js/jquery-1.11.3.js') }}"></script>
+<script src="{{ secure_asset('js/jquery-1.11.3.js') }}"></script>
 <script src="{{ asset('js/materialize.js') }}"></script>
 <script src="{{ secure_asset('js/materialize.js') }}"></script>
 <script src="{{ asset('js/init.js') }}"></script>
@@ -36,11 +37,6 @@
 <script src="{{ secure_asset('js/application.js') }}"></script>
 <script src="{{ asset('js/application.js') }}"></script>
 <script>
- $(document).ready(function(){
-	// the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-	$('.modal-trigger').leanModal();
-	$('select').material_select();
- });
 
 </script>
 </body>

@@ -1,5 +1,8 @@
 $(document).ready(function () {
 
+    $('.modal-trigger').leanModal();
+    $('select').material_select();
+
     $.ajaxSetup({
         headers: {'X-CSRF-Token': $('meta[name=_token]').attr('content')}
     });
