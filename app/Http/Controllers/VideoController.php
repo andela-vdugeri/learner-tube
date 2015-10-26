@@ -34,7 +34,7 @@ class VideoController extends Controller
 	 * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\RedirectResponse|
 	 * \Symfony\Component\HttpFoundation\Response
 	 */
-     public function store(VideoFormRequest $request, Video $video, UrlParser $parser)
+     public function store(Request $request, Video $video, UrlParser $parser)
      {
 
 		$user = Auth::user();
