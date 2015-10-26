@@ -49,24 +49,30 @@
 	 <div class="col s8 m8">
 		<div class="row"></div>
 		<div class="section">
-		 @foreach($videos as $video)
-		 <div class="col s6 m6">
-			<div class="card">
-			 <div class="card-image waves-effect waves-block waves-light">
-				<a href="{{route('show.video', $video->id)}}" >
-				 <img src="https://img.youtube.com/vi/{{ $video->url }}/hqdefault.jpg"/>
-				 </a>
-			 </div>
-			 <div class="card-content">
-				<span class="card-title activator grey-text text-darken-4">{{ $video->title }}<i class="material-icons right">more_vert</i></span>
-			 </div>
-			 <div class="card-reveal">
-				<span class="card-title grey-text text-darken-4">{{ $video->title }}<i class="material-icons right">close</i></span>
-				<p>{{ $video->description }}</p>
+		 @if(count($videos) > 0)
+			@foreach($videos as $video)
+			<div class="col s6 m6">
+			 <div class="card">
+				<div class="card-image waves-effect waves-block waves-light">
+				 <a href="{{route('show.video', $video->id)}}" >
+					<img src="https://img.youtube.com/vi/{{ $video->url }}/hqdefault.jpg"/>
+					</a>
+				</div>
+				<div class="card-content">
+				 <span class="card-title activator grey-text text-darken-4">{{ $video->title }}<i class="material-icons right">more_vert</i></span>
+				</div>
+				<div class="card-reveal">
+				 <span class="card-title grey-text text-darken-4">{{ $video->title }}<i class="material-icons right">close</i></span>
+				 <p>{{ $video->description }}</p>
+				</div>
 			 </div>
 			</div>
-		 </div>
-		 @endforeach
+			@endforeach
+		 @else
+			<div class="collection">
+			<a href="#!" class="collection-item center">No videos in this category yet</a>
+			</div>
+		 @endif
 		</div>
 	 </div>
 	</div>
