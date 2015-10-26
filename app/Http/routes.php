@@ -19,9 +19,11 @@ Route::get('/', [
 	'middleware'=> ['guest']
 ]);
 
-/**
- * Authentication routes
- */
+/*
+| -------------------------------------------------------------
+| * Authentication routes
+|--------------------------------------------------------------
+*/
 Route::get('/register', [
   'uses' => 'Auth\AuthController@getRegister',
   'as'   => 'auth.register'
@@ -48,9 +50,12 @@ Route::post('/login', [
   'middleware' 	=> ['guest']
 ]);
 
-/**
- * user dashboard
- */
+/*
+|--------------------------------------------------------
+| User action routes
+|--------------------------------------------------------
+*/
+
 Route::get('/dashboard',[
 	'uses' 			=> 'HomeController@index',
 	'as'   			=> 'dashboard',
@@ -62,10 +67,6 @@ Route::post('/video', [
 	'as'	=> 'post.video'
 ]);
 
-
-/**
- *Edit user profile
- */
 
 Route::get('profile/{id}', [
 	'uses' 			=> 'UserProfileController@edit',
@@ -79,23 +80,18 @@ Route::post('profile/{id}', [
 	'middleware' 	=> ['auth']
 ]);
 
-/**
- * fetch categories
- */
-
 Route::get('categories/{id}', 'WelcomeController@categories');
 
-/**
- * View videos
- */
 
 Route::get('/video/{id}',[
 	'uses' 	=> 'VideoController@show',
 	'as'	=> 'show.video'
 ]);
 
-/**
- * Social authentication routes
+/*
+|-------------------------------------------------------
+| Social auth route
+|-------------------------------------------------------
  */
 
 Route::get('{provider}', 'Auth\AuthController@doSocial');

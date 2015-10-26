@@ -18,10 +18,9 @@ class HomeController extends Controller
      {
          $user = Auth::user();
 
-        //get all categories
-
-        $categories = Category::all();
-         return view('users.dashboard', compact('repo', 'user', 'categories'));
+         //get all categories
+         $categories = Category::all();
+		 return view('users.dashboard', compact('repo', 'user', 'categories'));
      }
 
 }

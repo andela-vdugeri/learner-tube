@@ -22,6 +22,7 @@ class VideoController extends Controller
         $videos = Video::all();
 		$user = Auth::user();
 		$categories = Category::all();
+
 		return view('dashboard', compact('videos', 'user', 'categories'));
      }
 
