@@ -2,10 +2,9 @@
 
 namespace Tubr\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Tubr\Category;
 use Tubr\Http\Requests;
-use Tubr\Http\Requests\CategoryFormRequest;
+use Illuminate\Http\Request;
 use Tubr\Http\Controllers\Controller;
 
 class CategoryController extends Controller

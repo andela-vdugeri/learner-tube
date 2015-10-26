@@ -9,7 +9,6 @@ use Tubr\Helpers\UrlParser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Tubr\Http\Controllers\Controller;
-use Tubr\Http\Requests\VideoFormRequest;
 
 class VideoController extends Controller
 {
