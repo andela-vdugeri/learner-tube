@@ -5,45 +5,6 @@ $(document).ready(function () {
         headers: {'X-CSRF-Token': $('meta[name=_token]').attr('content')}
     });
 
-    //$('#post-video').on('submit', function (event) {
-    //
-    //    event.preventDefault();
-    //
-    //    var videoUrl = $('#url').val();
-    //    var title = $('#title').val();
-    //    var videoCategory = $('#category').val();
-    //    var description = $('#description').val();
-    //
-    //
-    //    $.ajax({
-    //        url: "video",
-    //        type: "POST",
-    //        data: {
-    //            videoUrl: videoUrl,
-    //            title: title,
-    //            videoCategory: videoCategory,
-    //            description: description
-    //        },
-    //
-    //        success: function (data) {
-    //            Materialize.toast('Video uploaded successfully', 4000);
-    //            $('#addVideo').hide();
-    //
-    //            $.ajax({
-    //                url: 'dashboard',
-    //                type: 'GET'
-    //            })
-    //        },
-    //
-    //        error: function (data) {
-    //            Materialize.toast("Error uploading video please try again",4000)
-    //        }
-    //
-    //    });
-    //});
-
-
-
     //change image click to file click
     $('#profile-pic').on('click', function(){
         $('#file').click();
@@ -62,7 +23,7 @@ $(document).ready(function () {
                     var reader = new FileReader();
                     reader.onload = function(e){
                         var img = $("<img/>");
-                        img.attr("style", "height:100px; width:100px");
+                        img.attr("style", "height:220px; width:130px");
                         img.attr("src", e.target.result);
                         imagePreview.append(img);
                     };

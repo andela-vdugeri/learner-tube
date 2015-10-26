@@ -43,13 +43,17 @@ class UserProfileController extends Controller
 
 			$uploader->uploadImage($file);
 			$url = $uploader->getShortUrl();
+
+			$user->avatar_url = $url;
+		}
+
+		if ($request['password']) {
+			$user->password = bcrypt($request->get('password'));
 		}
 
 		$user->email        = $request->get('email');
 		$user->name         = $request->get('name');
-		$user->password     = bcrypt($request->get('password'));
 		$user->about        = $request->get('about');
-		$user->avatar_url   = $url;
 
 		$user->save();
 

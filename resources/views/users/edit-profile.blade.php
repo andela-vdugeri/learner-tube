@@ -26,19 +26,15 @@
 						 <div class="col s6">
 							<div class="input-field">
 							 <i class="material-icons prefix">mode_edit</i>
-							 <input type="text" name="name" id="name" value="{{$user->name}}">
+							 <input type="text" name="name" id="name" value="{{$user->name}}" required>
 							</div>
 						 </div>
 						 <div class="col s2 offset-s4 ">
 							<div class="file-field input-field" id="image">
-							 <div class="btn">
-								<span>File</span>
-								{{--<input type="file" id="file" multiple>--}}
-							 </div>
 								<input type="file" name="file" id="file">
 							</div>
 							<div class="waves-effect waves-block waves-light" id="imagePreview">
-							 <img src="{{$user->avatar_url}}" height="80" width="240" id="profile-pic">
+							 <img src="{{$user->avatar_url}}" height="120" width="100" id="profile-pic">
 							</div>
 						 </div>
 						</div>
@@ -46,7 +42,7 @@
 					 <div class="row">
 						<div class="input-field">
 						 <i class="material-icons prefix">mode_edit</i>
-						 <input type="email" name="email" id="email" value="{{ $user->email }}">
+						 <input type="email" name="email" id="email" value="{{ $user->email }}" required>
 						</div>
 						<div class="input-field">
 						 <i class="material-icons prefix">mode_edit</i>
