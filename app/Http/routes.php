@@ -80,6 +80,25 @@ Route::post('profile/{id}', [
 	'middleware' 	=> ['auth']
 ]);
 
+Route::get('/categories/create',[
+ 	'uses' 		=> 'CategoryController@create',
+	'as'    	=> 'category.create',
+	'middleware'=> ['auth']
+]);
+
+
+Route::post('/categories', [
+	'uses'		=> 'CategoryController@store',
+	'as'		=> 'post.category',
+  	'middleware'=> ['auth']
+]);
+
+Route::put('/categories/:id', [
+	'uses'		=> 'CategoryController@update',
+	'as'		=> 'category.update',
+	'middleware'=> ['auth']
+]);
+
 Route::get('categories/{id}', 'WelcomeController@categories');
 
 
@@ -87,6 +106,9 @@ Route::get('/video/{id}',[
 	'uses' 	=> 'VideoController@show',
 	'as'	=> 'show.video'
 ]);
+
+
+
 
 /*
 |-------------------------------------------------------
