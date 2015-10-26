@@ -11,8 +11,6 @@
 |
 */
 
-
-
 Route::get('/', [
 	'uses' 		=> 'WelcomeController@index',
 	'as'   		=>  'welcome',
@@ -107,14 +105,11 @@ Route::get('/video/{id}',[
 	'as'	=> 'show.video'
 ]);
 
-
-
-
 /*
 |-------------------------------------------------------
 | Social auth route
 |-------------------------------------------------------
- */
+*/
 
 Route::get('{provider}', 'Auth\AuthController@doSocial');
 

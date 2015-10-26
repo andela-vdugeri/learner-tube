@@ -63,7 +63,6 @@ class UploadImage {
 			$this->initBitly();
 
 			//shorten url
-
 			$this->shortUrl = $this->shortener->shortenUrl($longUrl);
 
 		}
