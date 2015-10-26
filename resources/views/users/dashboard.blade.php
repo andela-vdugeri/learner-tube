@@ -27,24 +27,27 @@
 	 <div class="section">
 		<div class="row float-up">
 		 <div class="col s12 m6 l9 ">
-			<a class="btn-floating btn-large waves-effect waves-light red right modal-trigger" href="#addVideo" name="add"><i class="material-icons">add</i></a>
+			<a class="btn-floating btn-large waves-effect waves-light red right" href="" id="show-form" name="add"><i class="material-icons">add</i></a>
 		 </div>
 		</div>
 
-		<!-- Video upload modal -->
-		<div id="addVideo" class="modal">
+		<!-- Video upload form -->
+		<div id="addVideo" class="card large col s8 offset-s4">
 		 <form method="post" action="{{ route('post.video') }}" id="post-video">
 			<input type="hidden" name="_token" value="{!! csrf_token() !!}">
 		 <div class="modal-content">
 			<h5>Post a link to a youtube video</h5>
 			<div class="input-field">
-			 <input type="text" name="title" id="title" placeholder="title">
+			 <input type="text" name="title" id="title">
+			 <label for="title">Title</label>
 			</div>
 			<div class="input-field">
-			 <textarea class="materialize-textarea" placeholder="Description" name="description" id="description"></textarea>
+			 <textarea class="materialize-textarea" name="description" id="description"></textarea>
+			 <label for="description">Description</label>
 			</div>
 			<div class="input-field">
-			 <input type="text" name="url" id="url" placeholder="video url">
+			 <input type="text" name="url" id="url">
+			 <label for="url">video link</label>
 			</div>
 			<div class="input-field">
 			 <select name="category" id="category" class="browser-default">
@@ -56,15 +59,21 @@
 			</div>
 		 </div>
 		 <div class="modal-footer">
-			<button class="btn waves-effect waves-light modal-close" type="submit" name="action">Post
+			<div class="section"></div>
+			<button class="btn waves-effect waves-light right" type="submit" name="action" id="show-form">Post
 			 <i class="material-icons right">send</i>
 			</button>
 		 </div>
 		 </form>
 		</div>
-		<!-- end of modal -->
+		<!-- end of video upload form -->
 
 		<div class="row" id="videos">
+		 @if(Session::has('info'))
+			<div id="collection">
+			 <a href="#" class="collection-item">{{ Session::get('info') }}</a>
+			</div>
+		 @endif
 		 <div class="section">
 			<div class="section">
 			</div>
