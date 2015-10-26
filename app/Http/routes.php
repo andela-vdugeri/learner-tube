@@ -65,6 +65,11 @@ Route::post('/video', [
 	'as'	=> 'post.video'
 ]);
 
+Route::get('videos', [
+	'uses'		=> 'VideoController@index',
+	'as'		=> 'videos.all',
+	'middleware'=> ['auth']
+]);
 
 Route::get('profile/{id}', [
 	'uses' 			=> 'UserProfileController@edit',
@@ -104,6 +109,7 @@ Route::get('/video/{id}',[
 	'uses' 	=> 'VideoController@show',
 	'as'	=> 'show.video'
 ]);
+
 
 /*
 |-------------------------------------------------------

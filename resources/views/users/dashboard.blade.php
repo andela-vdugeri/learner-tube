@@ -23,7 +23,7 @@
 			</div>
 	 </div>
 	</div>
-	<div class="col s6 m6">
+	<div class="col s6 m6 l6">
 	 <div class="section">
 		<div class="row float-up">
 		 <div class="col s12 m6 l9 ">
@@ -38,19 +38,19 @@
 		 <div class="modal-content">
 			<h5>Post a link to a youtube video</h5>
 			<div class="input-field">
-			 <input type="text" name="title" id="title">
+			 <input type="text" name="title" id="title" required>
 			 <label for="title">Title</label>
 			</div>
 			<div class="input-field">
-			 <textarea class="materialize-textarea" name="description" id="description"></textarea>
+			 <textarea class="materialize-textarea" name="description" id="description" required></textarea>
 			 <label for="description">Description</label>
 			</div>
 			<div class="input-field">
-			 <input type="text" name="url" id="url">
+			 <input type="text" name="url" id="url" required>
 			 <label for="url">video link</label>
 			</div>
 			<div class="input-field">
-			 <select name="category" id="category" class="browser-default">
+			 <select name="category" id="category" class="browser-default" required>
 				<option value="" selected>Select a category</option>
 				@foreach($categories as $category)
 				 <option value="{{ $category->id }}">{{ $category->name }}</option>

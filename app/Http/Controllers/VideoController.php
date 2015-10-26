@@ -9,6 +9,7 @@ use Tubr\Helpers\UrlParser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Tubr\Http\Controllers\Controller;
+use Tubr\Http\Requests\VideoFormRequest;
 
 class VideoController extends Controller
 {
@@ -23,7 +24,7 @@ class VideoController extends Controller
 		$user = Auth::user();
 		$categories = Category::all();
 
-		return view('dashboard', compact('videos', 'user', 'categories'));
+		return view('videos.all', compact('videos', 'user', 'categories'));
      }
 
 	 /**
@@ -33,7 +34,7 @@ class VideoController extends Controller
 	 * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\RedirectResponse|
 	 * \Symfony\Component\HttpFoundation\Response
 	 */
-     public function store(Request $request, Video $video, UrlParser $parser)
+     public function store(VideoFormRequest $request, Video $video, UrlParser $parser)
      {
 
 		$user = Auth::user();
