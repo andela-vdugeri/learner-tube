@@ -2,6 +2,7 @@
 
 namespace Tubr\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Tubr\Category;
 use Tubr\Http\Requests;
 use Illuminate\Http\Request;
@@ -66,8 +67,9 @@ class CategoryController extends Controller
      public function edit($id)
      {
         $category = Category::find($id);
+		$user = Auth::user();
 
-		return view('videos.edit-category', compact($category));
+		return view('videos.edit-category', compact('category', 'user'));
      }
 
      /**

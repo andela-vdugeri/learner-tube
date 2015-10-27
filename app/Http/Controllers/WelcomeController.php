@@ -34,7 +34,7 @@ class WelcomeController extends Controller
 	 {
 		$videos = DB::table('videos')->where('category_id', $id)->get();
 		$categories = Category::all();
-		$user = Auth::check();
+		$user = Auth::user();
 
 		return view('welcome', compact('videos', 'categories', 'user'));
 	 }

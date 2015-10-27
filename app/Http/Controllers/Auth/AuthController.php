@@ -124,7 +124,7 @@ class AuthController extends Controller
 			return redirect()->back()->withInput()->with('message','Invalid user credentials');
 		}
 
-		return redirect('dashboard')->with('info', 'you are logged in');
+		return redirect('dashboard');
 	}
 
 

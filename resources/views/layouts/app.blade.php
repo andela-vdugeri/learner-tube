@@ -16,13 +16,13 @@
 <div class="navbar-fixed">
  <nav class="cyan z-depth-0">
 	<div class="nav-wrapper">
-	 <a href="{{url('/')}}" class="brand-logo white-text"><span class="navbar-brand-right">Tubr</span></a>
+	 <a id="logo" href="{{url('/')}}" class="brand-logo white-text"><span class="navbar-brand-right">Tubr</span></a>
 		@yield('navigation')
 	</div>
  </nav>
 </div>
 
-<div class="col s12 m6 l9">
+<div>
  	@yield('content')
 </div>
 
@@ -36,8 +36,5 @@
 <script src="{{ secure_asset('js/init.js') }}"></script>
 <script src="{{ secure_asset('js/application.js') }}"></script>
 <script src="{{ asset('js/application.js') }}"></script>
-<script>
-
-</script>
 </body>
 </html>

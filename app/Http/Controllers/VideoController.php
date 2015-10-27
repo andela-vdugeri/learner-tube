@@ -59,7 +59,7 @@ class VideoController extends Controller
      */
      public function show($id)
      {
-		$user = Auth::check();
+		$user = Auth::user();
 		$categories = Category::all();
 		$video = Video::find($id);
 

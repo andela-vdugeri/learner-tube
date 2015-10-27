@@ -1,6 +1,12 @@
 $(document).ready(function () {
 
+    //hide video upload form on document ready.
     $('#addVideo').hide();
+
+    //activate dropdown links
+    $(".dropdown-button").dropdown();
+
+    //set up ajax request headers
     $.ajaxSetup({
         headers: {'X-CSRF-Token': $('meta[name=_token]').attr('content')}
     });
@@ -10,6 +16,7 @@ $(document).ready(function () {
         $('#file').click();
     });
 
+    //preview images.
     $('#file').change(function(event){
         event.preventDefault();
 
@@ -40,11 +47,35 @@ $(document).ready(function () {
     });
 
 
+    //show add video form and hide other content on page.
     $('#show-form').on('click', function(e){
         e.preventDefault();
         $('#addVideo').show();
         $('#show-form').hide();
         $('#videos').hide();
+        $('#sidebar').hide();
     })
 
+    //user closes the form
+    $('#close-form').on('click', function(e){
+        e.preventDefault();
+        $('#addVideo').hide();
+        $('#show-form').show();
+        $('#videos').show();
+        $('#sidebar').show();
+    })
+
+
+    //side nav
+    ('.button-collapse').sideNav({
+          menuWidth: 300, // Default is 240
+          edge: 'right', // Choose the horizontal origin
+          closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+      }
+    );
+
+
+    $('#collapsible').on('click', function(){
+       $('#logo').toggleClass('move-left');
+    });
 });

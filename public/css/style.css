@@ -86,10 +86,40 @@ main{
     left: 490px;
 }
 
-.float-up {
-    position: absolute;
-    top: 70px;
-    left: 1020px;
+.pull-left{
+    margin-left: 980px !important;
 }
 
+
+.left-and-down{
+  margin-top: 10px;
+}
+
+.dropdown-content {
+    background-color: #FFFFFF;
+    margin: 0;
+    display: none;
+    min-width: 300px; /* Changed this to accomodate content width */
+    max-height: auto;
+    overflow: hidden; /* Changed this from overflow-y:auto; to overflow:hidden; */
+    opacity: 0;
+    white-space: nowrap;
+    z-index: 0;
+    will-change: width, height;
+}
+.move-left{
+    position: absolute;
+    left: 240px;
+    top: 0;
+}
+
+.hide-long-text{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.left-shift{
+    margin: 70px 0 0 -220px !important;
+}
 

@@ -35,34 +35,43 @@
 	</div>
 	<div class="row">
 		<div class="col s3 m3">
-		 <ul class="collection collapsible">
-			@foreach($categories as $category)
-				<li class="collapsible-header"><a href="{{ url('categories', $category->id) }}" class="collection-item">{{ $category->name }}</a></li>
-			@endforeach
+		 <!-- left side bar -->
+		 <ul id="slide-out" class="side-nav">
+			<li class="no-padding">
+			 <ul class="collapsible collapsible-accordion">
+				<li>
+				 <a class="collapsible-header">Categories<i class="mdi-navigation-arrow-drop-down"></i></a>
+				 <div class="collapsible-body">
+					<ul>
+					 @foreach($categories as $category)
+						<li><a href="{{ url('categories', $category->id) }}">{{ $category->name }}</a></li>
+					 @endforeach
+					</ul>
+				 </div>
+				</li>
+			 </ul>
+			</li>
 		 </ul>
+		 <a href="#" data-activates="slide-out" class="button-collapse" id="collapsible"><i class="mdi-navigation-menu"></i>Categories</a>
+		 <!--- end of left side-bar -->
 	 	</div>
 	 <div class="col s8 m8">
 		<div class="row"></div>
 		<div class="section">
 		 @if(count($videos) > 0)
 			@foreach($videos as $video)
-			<div class="col s6 m6">
-			 <div class="card">
-				<div class="card-image waves-effect waves-block waves-light">
-				 <a href="{{route('show.video', $video->id)}}" >
-					<img src="https://img.youtube.com/vi/{{ $video->url }}/hqdefault.jpg"/>
+			<div class="col s3 m3 l3 hide-long-text">
+				<div class="card">
+				 <div>
+					<a href="{{route('show.video', $video->id)}}" >
+					 <img src="https://img.youtube.com/vi/{{ $video->url }}/hqdefault.jpg" width="850" height="120"/>
 					</a>
+				 </div>
 				</div>
-				<div class="card-content">
-				 <span class="card-title activator grey-text text-darken-4">{{ $video->title }}<i class="material-icons right">more_vert</i></span>
-				</div>
-				<div class="card-reveal">
-				 <span class="card-title grey-text text-darken-4">{{ $video->title }}<i class="material-icons right">close</i></span>
-				 <p>{{ $video->description }}</p>
-				</div>
+				<span><p>{{ $video->description }}</p></span>
 			 </div>
-			</div>
 			@endforeach
+		</div>
 		 @else
 			<div class="collection">
 			<a href="#!" class="collection-item center">No videos in this category yet</a>
