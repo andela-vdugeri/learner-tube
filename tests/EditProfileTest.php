@@ -32,13 +32,11 @@ class EditProfileTest extends TestCase
 	{
 		$this->withoutMiddleware();
 
-		//$this->createUser();
-
 		$user = factory(\Tubr\User::class)->create();
 		$this->actingAs($user)
 			->withSession(['name' => 'johndoe'])
 			->visit('/dashboard')
-			->click('Edit Profile')
+			->click('edit-profile')
 			->seePageIs('profile/1')
 			->type('John', 'name')
 			->type('johndoe@example.com', 'email')
