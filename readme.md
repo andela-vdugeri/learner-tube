@@ -21,6 +21,27 @@ git clone https://github.com/andela-vdugeri/learner-tube.git
 `````
 to clone the repository to your working directory. This step presumes that you have git set up and running.
 
+Run
+````bash
+composer install
+`````
+to pull in the project dependencies.
+
+Now you are set up and ready to run.
+
+
+##Project features
+- Authentication:
+  Registration
+  Sign in
+  social mediation authentication
+- User Profile Management
+- Youtube Video embedding - Authenticated users only
+- Addition of new categories - Authenticated users only
+- Browse all videos
+- Browse videos by category
+- view single video
+
 
 ## Security Vulnerabilities
 
