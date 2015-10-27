@@ -35,17 +35,12 @@
 	</div>
 	<div class="row">
 		<div class="col s3 m3">
-		 <div class="section">
-		 <div class="card ">
+		 <ul class="collection collapsible">
 			@foreach($categories as $category)
-			 <div class="row center">
-				<a href="{{ url('categories', $category->id) }}">{{ $category->name }}</a>
-			 </div>
-			 <div class="divider"></div>
+				<li class="collapsible-header"><a href="{{ url('categories', $category->id) }}" class="collection-item">{{ $category->name }}</a></li>
 			@endforeach
-		 </div>
-		</div>
-	 </div>
+		 </ul>
+	 	</div>
 	 <div class="col s8 m8">
 		<div class="row"></div>
 		<div class="section">
