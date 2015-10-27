@@ -10,32 +10,18 @@
 	<div class="col s16 m6 l6 pull-left">
 	 <a class="btn-floating btn-large waves-effect waves-light red right" href="" id="show-form" name="add"><i class="material-icons">add</i></a>
 	</div>
-	 {{--<!-- left side bar -->--}}
-	 {{--<ul id="slide-out" class="side-nav">--}}
-		{{--<li><a href="#!"><img src="{{ $user->avatar_url }}" class="circle left-and-down" width="40" height="40"/></a></li>--}}
-		{{--<li class="no-padding">--}}
-		 {{--<ul class="collapsible collapsible-accordion">--}}
-			{{--<li>--}}
-			 {{--<a class="collapsible-header" id="collapsible">Categories<i class="mdi-navigation-arrow-drop-down"></i></a>--}}
-			 {{--<div class="collapsible-body">--}}
-				{{--<ul>--}}
-				 {{--@foreach($categories as $category)--}}
-				 {{--<li><a href="{{ url('categories', $category->id) }}">{{ $category->name }}</a></li>--}}
-					{{--@endforeach--}}
-				{{--</ul>--}}
-			 {{--</div>--}}
-			{{--</li>--}}
-		 {{--</ul>--}}
-		{{--</li>--}}
-	 {{--</ul>--}}
-	 {{--<a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i>Categories</a>--}}
-	 {{--<!--- end of left side-bar -->--}}
+	 <!-- left side bar -->
+		<div class="collection">
+		 @foreach($categories as $category)
+			<a class="collection-item" href="{{ url('categories', $category->id) }}">{{ $category->name }}</a>
+		 @endforeach
+		</div>
 
 	 <!-- flash session info -->
 	 <div class="col s6 m6 l6">
 		@if(Session::has('info'))
 		 <div id="collection">
-			<a href="#" class="collection-item">{{ Session::get('info') }}</a>
+			<a href="{{ url('categories', $category->id) }}" class="collection-item">{{ Session::get('info') }}</a>
 		 </div>
 		@endif
 	 </div>
@@ -45,7 +31,8 @@
 
 	<!-- start of right column -->
 	<!-- Video upload form -->
-	<div id="addVideo" class="card large col s6 m6 l6">
+	<div class="section"></div>
+	<div id="addVideo" class="card large col s6 m6 l6 offset-l1">
 	 <form method="post" action="{{ route('post.video') }}" id="post-video">
 		<input type="hidden" name="_token" value="{!! csrf_token() !!}">
 		<div class="modal-content">
@@ -84,7 +71,8 @@
 	</div>
 	<!-- end of video upload form -->
 
-	<div class="col s8 m8 l8 left-shift" id="videos">
+	<div class="col s8 m8 l8" id="videos">
+	 <div class="section"></div>
 	 @foreach($user->videos as $video)
 		<div class="col s3 m3 l3 hide-long-text">
 		<div class="card">

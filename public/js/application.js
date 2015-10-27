@@ -64,18 +64,5 @@ $(document).ready(function () {
         $('#videos').show();
         $('#sidebar').show();
     })
-
-
-    //side nav
-    ('.button-collapse').sideNav({
-          menuWidth: 300, // Default is 240
-          edge: 'right', // Choose the horizontal origin
-          closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
-      }
-    );
-
-
-    $('#collapsible').on('click', function(){
-       $('#logo').toggleClass('move-left');
-    });
+    
 });

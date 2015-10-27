@@ -34,44 +34,26 @@
 		@endif
 	</div>
 	<div class="row">
-		<div class="col s3 m3">
-		 <!-- left side bar -->
-		 <ul id="slide-out" class="side-nav">
-			<li class="no-padding">
-			 <ul class="collapsible collapsible-accordion">
-				<li>
-				 <a class="collapsible-header">Categories<i class="mdi-navigation-arrow-drop-down"></i></a>
-				 <div class="collapsible-body">
-					<ul>
-					 @foreach($categories as $category)
-						<li><a href="{{ url('categories', $category->id) }}">{{ $category->name }}</a></li>
-					 @endforeach
-					</ul>
-				 </div>
-				</li>
-			 </ul>
-			</li>
-		 </ul>
-		 <a href="#" data-activates="slide-out" class="button-collapse" id="collapsible"><i class="mdi-navigation-menu"></i>Categories</a>
-		 <!--- end of left side-bar -->
-	 	</div>
-	 <div class="col s8 m8">
+		<div class="col s3 m3 l3">
+		 <div class="collection">
+			@foreach($categories as $category)
+				<a href="{{ url('categories', $category->id) }}" class="collection-item">{{ $category->name }}</a>
+			@endforeach
+		 </div>
+		</div>
+	 <div class="col s8 m8 l8">
 		<div class="row"></div>
-		<div class="section">
 		 @if(count($videos) > 0)
 			@foreach($videos as $video)
 			<div class="col s3 m3 l3 hide-long-text">
-				<div class="card">
 				 <div>
 					<a href="{{route('show.video', $video->id)}}" >
-					 <img src="https://img.youtube.com/vi/{{ $video->url }}/hqdefault.jpg" width="850" height="120"/>
+					 <img src="https://img.youtube.com/vi/{{ $video->url }}/hqdefault.jpg" width="200" height="150"/>
 					</a>
 				 </div>
-				</div>
 				<span><p>{{ $video->description }}</p></span>
 			 </div>
 			@endforeach
-		</div>
 		 @else
 			<div class="collection">
 			<a href="#!" class="collection-item center">No videos in this category yet</a>

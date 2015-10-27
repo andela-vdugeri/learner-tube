@@ -11,29 +11,6 @@
 
 
 @section('content')
- <div class="row">
-	<div class="col s3 m3 l3">
-	 {{--<!-- left side bar -->--}}
-	 {{--<ul id="slide-out" class="side-nav">--}}
-		{{--<li class="no-padding">--}}
-		 {{--<ul class="collapsible collapsible-accordion">--}}
-			{{--<li>--}}
-			 {{--<a class="collapsible-header">Categories<i class="mdi-navigation-arrow-drop-down"></i></a>--}}
-			 {{--<div class="collapsible-body">--}}
-				{{--<ul>--}}
-				 {{--@foreach($categories as $category)--}}
-					{{--<li><a href="{{ url('categories', $category->id) }}">{{ $category->name }}</a></li>--}}
-				 {{--@endforeach--}}
-				{{--</ul>--}}
-			 {{--</div>--}}
-			{{--</li>--}}
-		 {{--</ul>--}}
-		{{--</li>--}}
-	 {{--</ul>--}}
-	 {{--<a href="#" data-activates="slide-out" class="button-collapse" id="collapsible"><i class="mdi-navigation-menu"></i>Categories</a>--}}
-	 {{--<!--- end of left side-bar -->--}}
-	 </div>
-	</div>
 	<div class="section">
 	 <div class="section"></div>
 	 <div class="section"></div>

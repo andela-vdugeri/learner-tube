@@ -6,6 +6,9 @@
  <!-- CSS  -->
  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
  <link href="{{ asset('css/materialize.css') }}" type="text/css" rel="stylesheet" media="screen,projection"/>
+ <link href="{{ asset('css/jquery-ui.min.css') }}" type="text/css" rel="stylesheet" media="screen,projection"/>
+ <link href="{{ asset('css/jquery-ui.structure.css') }}" type="text/css" rel="stylesheet" media="screen,projection"/>
+ <link href="{{ asset('css/jquery-ui.theme.css') }}" type="text/css" rel="stylesheet" media="screen,projection"/>
  <link href="{{ secure_asset('css/materialize.css') }}" type="text/css" rel="stylesheet" media="screen,projection"/>
  <link href="{{ asset('css/style.css') }}" type="text/css" rel="stylesheet" media="screen,projection"/>
  <link href="{{ secure_asset('css/style.css') }}" type="text/css" rel="stylesheet" media="screen,projection"/>
@@ -16,7 +19,7 @@
 <div class="navbar-fixed">
  <nav class="cyan z-depth-0">
 	<div class="nav-wrapper">
-	 <a id="logo" href="{{url('/')}}" class="brand-logo white-text"><span class="navbar-brand-right">Tubr</span></a>
+	 <a href="{{url('/')}}" class="brand-logo white-text"><span class="navbar-brand-right">Tubr</span></a>
 		@yield('navigation')
 	</div>
  </nav>
@@ -29,6 +32,7 @@
 @yield('footer')
 <!--  Scripts-->
 <script src="{{ asset('js/jquery-1.11.3.js') }}"></script>
+<script src="{{ asset('js/jquery-ui.min.js') }}"></script>
 <script src="{{ secure_asset('js/jquery-1.11.3.js') }}"></script>
 <script src="{{ asset('js/materialize.js') }}"></script>
 <script src="{{ secure_asset('js/materialize.js') }}"></script>
