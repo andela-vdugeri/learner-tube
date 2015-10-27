@@ -7,6 +7,21 @@
 
 Thank you for considering contributing to the Learner Tube project! The contribution guide can be found in the [Contributing file](CONTRIBUTING.md).
 
+##Usage
+
+To download and use this project you need to have the following installed on your machine
+- Composer
+  for instructions on how to install composer visit the [official website](https://getcomposer.org/doc/00-intro.md) for installation instructions
+- Laravel homestead
+  visit the [Laravel website](http://laravel.com/docs/5.1/homestead) for installation and set up instructions.
+
+When you have succesfully completed the above processes, you can run:
+```bash
+git clone https://github.com/andela-vdugeri/learner-tube.git
+`````
+to clone the repository to your working directory. This step presumes that you have git set up and running.
+
+
 ## Security Vulnerabilities
 
 If you discover a security vulnerability within Learner Tube, please send an e-mail to Verem Dugeri at danverem@gmail.com. All security vulnerabilities will be promptly addressed.

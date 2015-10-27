@@ -44,8 +44,6 @@ class RegisterPageTest extends TestCase
 
 	public function testRegisterPageWorksCorrectly()
 	{
-
-
 		$this->visit('/register')
 			->type('johndoe', 'name')
 			->type('john@doe.com', 'email')
