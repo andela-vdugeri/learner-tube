@@ -2,6 +2,7 @@
 
 namespace Tubr\Http\Controllers;
 
+use Tubr\Repositories\CategoriesRepository;
 use Tubr\Video;
 use Tubr\Category;
 use Tubr\Http\Requests;
@@ -17,13 +18,13 @@ class WelcomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-     public function index()
+     public function index(CategoriesRepository $repo)
      {
         $categories = Category::all();
 		$videos 	= Video::all();
 		$user 		= Auth::user();
 
-		return view('welcome', compact('categories', 'videos', 'user'));
+		return view('welcome', compact('categories', 'videos', 'user', 'repo'));
      }
 
 	 /**

@@ -8,6 +8,7 @@
 
 namespace Tubr\Repositories;
 
+use DB;
 use Carbon\Carbon;
 use Tubr\Category;
 
@@ -31,7 +32,13 @@ class CategoriesRepository
 		$newlyCreated = Carbon::now()->subDays(2);
 		return DB::table('videos')
 		  ->where('category_id', '=', $category->id)
-		  ->where('created_at', '=',$newlyCreated )
-		  ->orWhere('created_at', '>', $newlyCreated);
+		  ->where('created_at', '>=',$newlyCreated )
+		  ->count();
+	}
+
+	public function countVideos($categoryId)
+	{
+		return DB::table('videos')
+		  ->where('category_id', '=', $categoryId)->count();
 	}
 }

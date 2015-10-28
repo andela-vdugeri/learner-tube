@@ -9,6 +9,7 @@ use Tubr\Helpers\UrlParser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Tubr\Http\Controllers\Controller;
+use Tubr\Repositories\CategoriesRepository;
 
 class VideoController extends Controller
 {
@@ -17,13 +18,13 @@ class VideoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-     public function index()
+     public function index(CategoriesRepository $repo)
      {
         $videos = Video::all();
 		$user = Auth::user();
 		$categories = Category::all();
 
-		return view('videos.all', compact('videos', 'user', 'categories'));
+		return view('videos.all', compact('videos', 'user', 'categories', 'repo'));
      }
 
 	 /**
@@ -40,22 +41,16 @@ class VideoController extends Controller
 
 		$url = $parser->parseUrl($request->get('url'));
 
-		if (! is_null($url)) {
-			$video->title       = $request->get('title');
-			$video->url         = $url;
-			$video->description = $request->get('description');
-			$video->category_id = $request->get('category');
-			$video->user_id     = $user->id;
+		$video->title       = $request->get('title');
+		$video->url         = $url;
+		$video->description = $request->get('description');
+		$video->category_id = $request->get('category');
+		$video->user_id     = $user->id;
 
-			$video->save();
+		$video->save();
 
-			$info = 'Video uploaded successfully';
 
-		} else {
-			$info = 'Invalid youtube video';
-		}
-
-		return redirect()->action('HomeController@index')->with('info', $info);
+		return redirect()->action('HomeController@index')->with('info', 'Video upload successful');
      }
 
      /**

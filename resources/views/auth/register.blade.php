@@ -52,7 +52,7 @@
 				<div class="col s12 m6 l9">
 				 @foreach($errors->all() as $error)
 					<ul>
-					 <li class="red">{{$error}}</li>
+					 <li class="red-text">{{$error}}</li>
 					</ul>
 				 @endforeach
 				</div>

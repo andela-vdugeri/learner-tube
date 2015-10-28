@@ -53,7 +53,6 @@ class AuthenticateUser {
 	 {
 
 		if(! $hasCode) {
-
 			return $this->getAuthorization($provider);
 		}
 

@@ -35,7 +35,7 @@ class UserProfileController extends Controller
      */
      public function update(Request $request, $id, UploadImage $uploader)
      {
-		$url = "";
+
 		$user = User::find($id);
 
 		if ($request['file']) {

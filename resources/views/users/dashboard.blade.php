@@ -11,22 +11,7 @@
 	 <a class="btn-floating btn-large waves-effect waves-light red right" href="" id="show-form" name="add"><i class="material-icons">add</i></a>
 	</div>
 	 <!-- left side bar -->
-		<div class="collection">
-		 @foreach($categories as $category)
-			<a class="collection-item" href="{{ url('categories', $category->id) }}">{{ $category->name }}<span class=" new badge">1</span></a>
-		 @endforeach
-		</div>
-
-	 <!-- flash session info -->
-	 <div class="col s6 m6 l6">
-		@if(Session::has('info'))
-		 <div id="collection">
-			<a href="{{ url('categories', $category->id) }}" class="collection-item">{{ Session::get('info') }}</a>
-		 </div>
-		@endif
-	 </div>
-	 <!--- end of flash session info -->
-	</div>
+		@include('partials.sidebar')
 	<!-- end of left column -->
 
 	<!-- start of right column -->
@@ -72,6 +57,15 @@
 	<!-- end of video upload form -->
 
 	<div class="col s8 m8 l8" id="videos">
+	 <!-- flash session info -->
+	 <div class="col s6 m6 l6">
+		@if(Session::has('info'))
+		 <div id="collection">
+			<a href="#" class="collection-item">{{ Session::get('info') }}</a>
+		 </div>
+		@endif
+	 </div>
+	 <!--- end of flash session info -->
 	 <div class="section"></div>
 	 @foreach($user->videos as $video)
 		<div class="col s3 m3 l3 hide-long-text">
@@ -88,11 +82,9 @@
 	</div>
  </div>
 
-
-
 @endsection
 
-{{--@section('footer')--}}
-	{{--@include('partials.footer')--}}
-{{--@endsection--}}
+@section('footer')
+	@include('partials.footer')
+@endsection
 

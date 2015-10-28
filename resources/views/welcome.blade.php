@@ -37,7 +37,7 @@
 		<div class="col s3 m3 l3">
 		 <div class="collection">
 			@foreach($categories as $category)
-				<a href="{{ url('categories', $category->id) }}" class="collection-item">{{ $category->name }}</a>
+				<a href="{{ url('categories', $category->id) }}" class="collection-item">{{ $category->name }}<span class="badge black-text">{{ $repo->countVideos($category->id) }}</span></a>
 			@endforeach
 		 </div>
 		</div>

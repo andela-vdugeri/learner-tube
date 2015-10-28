@@ -28,25 +28,6 @@ class EditProfileTest extends TestCase
 		$this->assertResponseOk();
 	}
 
-	public function testProfileUpdate()
-	{
-		$this->withoutMiddleware();
-
-		$user = factory(\Tubr\User::class)->create();
-		$this->actingAs($user)
-			->withSession(['name' => 'johndoe'])
-			->visit('/dashboard')
-			->click('edit-profile')
-			->seePageIs('profile/1')
-			->type('John', 'name')
-			->type('johndoe@example.com', 'email')
-			->type('Kind folk from a little town', 'about')
-			->press('action')
-			->seePageIs('/dashboard');
-
-		$this->assertResponseOk();
-	}
-
 	private function createUser()
 	{
 		User::create([
