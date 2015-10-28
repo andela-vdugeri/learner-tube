@@ -21,7 +21,7 @@ class WelcomeController extends Controller
      {
         $categories = Category::all();
 		$videos 	= Video::all();
-		$user 		= Auth::check();
+		$user 		= Auth::user();
 
 		return view('welcome', compact('categories', 'videos', 'user'));
      }
