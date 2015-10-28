@@ -7,29 +7,30 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class RegisterPageTest extends TestCase
 {
-    /**
+     /**
      * A basic test example.
      *
      * @return void
      */
-    public function testExample()
-    {
+     public function testExample()
+     {
         $this->assertTrue(true);
-    }
+     }
 
-	public function testRegistrationPageLoadsCorrectly()
-	{
+	 public function testRegistrationPageLoadsCorrectly()
+	 {
 		$this->call('GET', '/register');
 
 		$this->assertResponseOk();
-	}
+	 }
 
-	public function testRegisterPageHasLogo()
-	{
+	 public function testRegisterPageHasLogo()
+	 {
 		$this->visit('/register')
 			->see('Tubr')
 			->seeLink('Tubr');
-	}
+	 }
+
 	public  function testRegisterPageHasNoLoginLink()
 	{
 		$this->visit('/register')

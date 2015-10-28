@@ -40,15 +40,22 @@ class VideoController extends Controller
 
 		$url = $parser->parseUrl($request->get('url'));
 
-		$video->title       = $request->get('title');
-		$video->url         = $url;
-		$video->description = $request->get('description');
-		$video->category_id = $request->get('category');
-		$video->user_id     = $user->id;
+		if (! is_null($url)) {
+			$video->title       = $request->get('title');
+			$video->url         = $url;
+			$video->description = $request->get('description');
+			$video->category_id = $request->get('category');
+			$video->user_id     = $user->id;
 
-		$video->save();
+			$video->save();
 
-		return redirect()->action('HomeController@index')->with('info', 'Video uploaded successfully');
+			$info = 'Video uploaded successfully';
+
+		} else {
+			$info = 'Invalid youtube video';
+		}
+
+		return redirect()->action('HomeController@index')->with('info', $info);
      }
 
      /**
