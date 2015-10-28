@@ -31,12 +31,12 @@ class WelcomeController extends Controller
 	 * @param $id
 	 * @return \Illuminate\View\View
 	 */
-	 public function categories($id)
+	 public function categories($id, CategoriesRepository $repo)
 	 {
 		$videos = DB::table('videos')->where('category_id', $id)->get();
 		$categories = Category::all();
 		$user = Auth::user();
 
-		return view('welcome', compact('videos', 'categories', 'user'));
+		return view('welcome', compact('videos', 'categories', 'user', 'repo'));
 	 }
 }

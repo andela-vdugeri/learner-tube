@@ -38,12 +38,7 @@ class CategoryController extends Controller
      public function store(Request $request)
      {
 
-        $name = $request->get('category');
-
-		$category = new Category();
-		$category->name = $name;
-
-		$category->save();
+		Category::firstOrCreate(['name'=>$request['category']]);
 
 		 return redirect('HomeController@index')->with('info', 'Category created');
      }

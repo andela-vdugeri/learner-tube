@@ -17,7 +17,9 @@
 		 <div class="section"></div>
 		 <div class="collection">
 			@foreach($categories as $category)
-			 <a class="collection-item" href="{{ url('categories', $category->id)  }}">{{ $category->name }}</a>
+			 <a class="collection-item" href="{{ url('categories', $category->id)  }}">{{ $category->name }}
+				<span class="badge new">{{ $repo->countVideos($category->id) }}</span>
+			 </a>
 			@endforeach
 		 </div>
 		</div>
