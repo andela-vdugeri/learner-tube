@@ -13,8 +13,7 @@
 
 Route::get('/', [
 	'uses' 		=> 'WelcomeController@index',
-	'as'   		=>  'welcome',
-	'middleware'=> ['guest']
+	'as'   		=>  'welcome'
 ]);
 
 /*
