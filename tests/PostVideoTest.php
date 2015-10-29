@@ -40,12 +40,12 @@ class PostVideoTest extends TestCase
 		//create a user
 		$this->createUser();
 
-		$this->click('add');
+		$this->click('upload');
 		$this->type('video', 'title')
 			->type('some random text', 'description')
 			->type('https://www.youtube.com/watch?v=Dji9ALCgfpM', 'url')
 			->select(1, 'category')
-			->press('action');
+			->press('submit');
 
 		$this->assertResponseOk();
 	}

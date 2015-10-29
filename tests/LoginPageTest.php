@@ -73,7 +73,7 @@ class LoginPageTest extends TestCase
 		$this->visit('/login')
 			->type('john@doe.com','email')
 			->type('password', 'password')
-			->press('action')
+			->press('submit')
 			->seePageIs('/dashboard');
 	}
 

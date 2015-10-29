@@ -50,7 +50,7 @@ class RegisterPageTest extends TestCase
 			->type('john@doe.com', 'email')
 			->type('password', 'password')
 			->type('password','password_confirmation')
-			->press('action')
+			->press('submit')
 			->seePageIs('/dashboard')
 			->seeInDatabase('users',['name' =>'johndoe']);
 	}

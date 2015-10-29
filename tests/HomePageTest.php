@@ -48,9 +48,7 @@ class HomePageTest extends TestCase
 	public function testHomePageHasRegisterLink()
 	{
 		$this->visit('/')
-		  ->seeLink('Register')
-		  ->seeLink('Get Started');
-
+		  ->seeLink('Register');
 	}
 
 	/**

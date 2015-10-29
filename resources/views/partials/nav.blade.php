@@ -20,7 +20,7 @@
 		<li><a href="{{ route('auth.login')  }}">Login</a></li>
 		<li><a href="{{ route('auth.register') }}">Register</a></li>
 		@else
-		  <li><a href="{{ route('video.create') }}"><button type="button" class="btn btn-default btn-sm">Upload</button></a></li>
+		  <li><a href="{{ route('video.create') }}" id="upload"><button type="button" class="btn btn-default btn-sm">Upload</button></a></li>
 		  <li><a href="{{ route('videos.all') }}">Videos</a></li>
 		  <li><a href="{{ route('auth.logout') }}">Logout</a></li>
 		@endif

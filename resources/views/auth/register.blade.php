@@ -20,7 +20,7 @@
 			<div class="form-group">
 			 <div class="input-group">
 				<span class="input-group-addon" id="username-addon"><span class="glyphicon glyphicon-user"></span></span>
-				<input type="text" name="username" id="username" class="form-control" placeholder="Username" aria-describedby="username-addon">
+				<input type="text" name="name" id="name" class="form-control" placeholder="Username" aria-describedby="username-addon">
 			 </div>
 			</div>
 			<div class="form-group">
@@ -58,7 +58,7 @@
 				 </a>
 				</div>
 				<div class="col-xs-3 col-sm-3 col-md-3">
-				 <input type="submit" class="btn btn-primary btn-right" name="submit" value="Login">
+				 <input type="submit" class="btn btn-primary btn-right" name="submit" value="Register">
 				</div>
 			</div>
 		 </form>

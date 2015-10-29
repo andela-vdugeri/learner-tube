@@ -73,7 +73,8 @@ class AuthController extends Controller
 
 	public function getRegister()
 	{
-		return view('auth.register');
+		$user = Auth::user();
+		return view('auth.register', compact('user'));
 	}
 
 
