@@ -29,6 +29,7 @@ class WelcomeController extends Controller
 
 	 /**
 	 * @param $id
+	 * @param CategoriesRepository $repo
 	 * @return \Illuminate\View\View
 	 */
 	 public function categories($id, CategoriesRepository $repo)
