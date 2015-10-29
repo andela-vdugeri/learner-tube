@@ -1,8 +1,10 @@
-<div class="collection">
- @foreach($categories as $category)
-	<a class="collection-item" href="{{ url('categories', $category->id) }}">{{ $category->name }}
-	 <span class="badge">{{ $repo->countVideos($category->id) }}</span>
-	</a>
- @endforeach
-</div>
+<div class="col-sm-12 col-md-12 col-lg-12 sidebar navbar-default" style="margin: 50px 0 0 -33px;">
+ <ul class="nav nav-sidebar">
+	<li><a href="#">Categories</a></li>
+ </ul>
+ <ul class="list-group">
+	@foreach($categories as $category)
+	 <li class="nav nav-sidebar list-group-item"><a href="{{ url('categories', $category->id) }}">{{ $category->name }}</a><span class="badge">{{ $repo->countVideos($category->id) }}</span></li>
+	@endforeach
+ </ul>
 </div>

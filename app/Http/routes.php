@@ -26,7 +26,11 @@ Route::get('/register', [
   'as'   => 'auth.register'
 ]);
 
-Route::post('/register' , 'Auth\AuthController@postRegister');
+Route::post('/register' , [
+  'uses' 		=> 'Auth\AuthController@postRegister',
+  'as'	 		=>	'post.register',
+  'middleware' 	=> ['guest']
+]);
 
 
 Route::get('/logout', [
