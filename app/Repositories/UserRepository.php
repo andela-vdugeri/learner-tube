@@ -53,13 +53,11 @@ class UserRepository {
 	 public function findByUsernameOrCreate($userData)
 	 {
 
-		$user = User::firstOrNew([
+		$user = User::firstOrCreate([
 			'email' => $userData->email,
 			'name' => $userData->nickname? $userData->nickname : $userData->name ,
 			'password' => bcrypt('password')
 		]);
-
-		$user->save();
 
 		return $user;
 	 }

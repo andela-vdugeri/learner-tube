@@ -1,0 +1,9 @@
+.btn-right{
+    margin-left: 15px;
+}
+
+@media all and (max-width: 699px) {
+    .btn-right {
+        margin-left: 10px;
+    }
+}
