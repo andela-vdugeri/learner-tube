@@ -2,23 +2,14 @@
 
 namespace Tubr\Http\Controllers;
 
-use Illuminate\Support\Facades\Auth;
 use Tubr\Category;
 use Tubr\Http\Requests;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Tubr\Http\Controllers\Controller;
 
 class CategoryController extends Controller
 {
-     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-     public function index()
-     {
-        $categories = Category::all();
-     }
 
      /**
      * Show the form for creating a new resource.
@@ -42,17 +33,6 @@ class CategoryController extends Controller
 		Category::firstOrCreate(['name'=>$request['category']]);
 
 		 return redirect('HomeController@index')->with('info', 'Category created');
-     }
-
-     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-     public function show($id)
-     {
-        $category = Category::find($id);
      }
 
      /**
@@ -82,16 +62,5 @@ class CategoryController extends Controller
 		$category->name = $request->get('name');
 
 		$category->save();
-     }
-
-     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-     public function destroy($id)
-     {
-        //
      }
 }

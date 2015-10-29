@@ -11,14 +11,13 @@ use Tubr\Http\Controllers\Controller;
 
 class HomeController extends Controller
 {
-     /**
-     * @param UserRepository $repo
-     * @return \Illuminate\View\View
-     */
+	 /**
+	 * @param CategoriesRepository $repo
+	 * @return \Illuminate\View\View
+	 */
      public function index(CategoriesRepository $repo)
      {
          $user = Auth::user();
-
 
          //get all categories
          $categories = Category::all();
