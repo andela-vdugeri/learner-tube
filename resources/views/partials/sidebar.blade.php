@@ -1,6 +1,8 @@
 <div class="col-sm-12 col-md-12 col-lg-12 sidebar navbar-default" style="margin: 50px 0 0 -33px;">
  <ul class="nav nav-sidebar">
-	<li><a href="#">Categories</a></li>
+	<li>
+	 <a href="#">Categories</a>
+	</li>
  </ul>
  <ul class="list-group">
 	@foreach($categories as $category)

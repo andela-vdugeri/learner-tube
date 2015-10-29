@@ -16,8 +16,14 @@
 	 <ul class="nav navbar-nav">
 	 </ul>
 	 <ul class="nav navbar-nav navbar-right">
-		<li><a href="{{ url('/login') }}">Login</a></li>
-		<li><a href="{{ url('/register') }}">Register</a></li>
+		@if(!$user)
+		<li><a href="{{ route('auth.login')  }}">Login</a></li>
+		<li><a href="{{ route('auth.register') }}">Register</a></li>
+		@else
+		  <li><a href="{{ route('video.create') }}"><button type="button" class="btn btn-default btn-sm">Upload</button></a></li>
+		  <li><a href="{{ route('videos.all') }}">Videos</a></li>
+		  <li><a href="{{ route('auth.logout') }}">Logout</a></li>
+		@endif
 	 </ul>
 	</div>
  </div>

@@ -74,6 +74,11 @@ Route::get('videos', [
 	'middleware'=> ['auth']
 ]);
 
+Route::get('/video/new', [
+	'uses' => 'VideoController@create',
+  	'as'   =>  'video.create'
+]);
+
 Route::get('profile/{id}', [
 	'uses' 			=> 'UserProfileController@edit',
 	'as'   			=> 'profile.edit',

@@ -79,7 +79,8 @@ class AuthController extends Controller
 
 	public function getLogin()
 	{
-		return view('auth.login');
+		$user = Auth::user();
+		return view('auth.login', compact('user'));
 	}
 
 	public function postRegister(Request $request, UserRepository $repo)

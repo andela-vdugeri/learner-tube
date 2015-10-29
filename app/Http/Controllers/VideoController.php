@@ -2,6 +2,7 @@
 
 namespace Tubr\Http\Controllers;
 
+use Tubr\Repositories\UserRepository;
 use Tubr\Video;
 use Tubr\Category;
 use Tubr\Http\Requests;
@@ -18,13 +19,9 @@ class VideoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-     public function index(CategoriesRepository $repo)
+     public function index()
      {
-        $videos = Video::all();
-		$user = Auth::user();
-		$categories = Category::all();
-
-		return view('videos.all', compact('videos', 'user', 'categories', 'repo'));
+		 return redirect()->action('WelcomeController@index');
      }
 
 	 /**
@@ -59,13 +56,22 @@ class VideoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-     public function show($id)
+     public function show($id, CategoriesRepository $repo)
      {
 		$user = Auth::user();
 		$categories = Category::all();
 		$video = Video::find($id);
 
-        return view('videos.show', compact('user', 'video', 'categories'));
+        return view('videos.show', compact('user', 'video', 'categories', 'repo'));
      }
+
+
+	 public function create(CategoriesRepository $repo)
+	 {
+		 $user = Auth::user();
+		 $categories = Category::all();
+
+		 return view('videos.new', compact('user', 'categories', 'repo'));
+	 }
 	
 }
