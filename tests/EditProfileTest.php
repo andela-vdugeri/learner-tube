@@ -19,9 +19,13 @@ class EditProfileTest extends TestCase
 
 	public function testEditProfilePageLoadsCorrectly()
 	{
-		$this->withoutMiddleware();
 
-		$this->createUser();
+
+		$user = factory(\Tubr\User::class)->create();
+		$this->actingAs($user)
+		  ->withSession(['name' => 'johndoe'])
+		  ->visit('/dashboard');
+		
 
 		$this->call('GET', 'profile/1');
 
@@ -30,7 +34,7 @@ class EditProfileTest extends TestCase
 
 	private function createUser()
 	{
-		User::create([
+		return User::create([
 		  'name' => 'johndoe',
 		  'email' => 'john@doe.com',
 		  'password' => bcrypt('password')
