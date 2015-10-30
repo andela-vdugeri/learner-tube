@@ -32,13 +32,15 @@ class AuthController extends Controller
 	protected $redirectPath = '/dashboard';
 	protected $loginPath 	= '/login';
 
+	private $repository;
+
 	/**
-	 * Creates a new AuthController instance
-	 *
+	 * @param UserRepository $repository
 	 */
-    public function __construct()
+    public function __construct(UserRepository $repository)
     {
         $this->middleware('guest', ['except' => 'getLogout']);
+		$this->repository = $repository;
     }
 
     /**
@@ -96,16 +98,10 @@ class AuthController extends Controller
 		if($validation->fails()) {
 			return redirect()->back()->withInput()->WithErrors($validation->errors());
 		}
-//		$this->validate($request, [
-//		  'email' 	=> 'required|unique:users|email|max:255',
-//		  'name'  	=> 'required|unique:users|max:255',
-//		  'password'=> 'required|confirmed|min:6'
-//		]);
 
 		$this->create($request->all());
 		Auth::attempt($request->only('email', 'password'));
-		$user = Auth::user();
-		$avatarUrl = $repo->getAvatarUrl($user);
+
 		return redirect()
 		  ->route('dashboard')
 		  ->with('message','Your account has been created');
@@ -137,12 +133,14 @@ class AuthController extends Controller
 
 	public function userAuthenticated($user)
 	{
+		$authUser = $this->repository->findBySocialIdOrCreate($user);
 
-		$email = $user->email;
-		$name = $user->nickname ? $user->nickname : $user->name;
+		Auth::login($authUser, true);
 
-		return redirect('/register')->withInput(['email' =>$email, 'name' => $name]);
+		return redirect()->route('dashboard');
 	}
+
+
 
 
 }
