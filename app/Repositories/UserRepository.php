@@ -73,6 +73,7 @@ class UserRepository {
 		$authUser->email 		= ($user->email)? $user->email: "";
 		$authUser->password 	= bcrypt($user->id);
 		$authUser->social_id 	= $user->id;
+		$authUser->avatar_url		= $user->avatar;
 
 		$authUser->save();
 
