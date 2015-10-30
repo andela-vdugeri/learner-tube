@@ -29,10 +29,13 @@ class CategoryController extends Controller
 	 */
      public function store(Request $request)
      {
+		 if (!(trim($request->get('name')) === "")) {
+			 Category::firstOrCreate(['name' => $request['name']]);
 
-		Category::firstOrCreate(['name'=>$request['category']]);
+			 return redirect('HomeController@index')->with('info', 'Category created');
+		 }
 
-		 return redirect('HomeController@index')->with('info', 'Category created');
+		 return redirect()->back()->with('info','Please enter a valid category name' );
      }
 
      /**

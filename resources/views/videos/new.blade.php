@@ -33,13 +33,13 @@
 			</div>
 			<div class="form-group">
 			 <div class="input-group">
-				<span class="input-group-addon" id="description-addon">Description</span>
+				<span class="input-group-addon" id="description-addon">About</span>
 				<textarea name="description" class="form-control" placeholder="Short Description" aria-describedby="description-addon" rows="5" cols="25"></textarea>
 			 </div>
 			</div>
 			<div class="form-group">
 			 <div class="input-group">
-				<span class="input-group-addon" id="category-addon">Description</span>
+				<span class="input-group-addon" id="category-addon">category</span>
 				<select name="category" class="form-control" id="category">
 				 @foreach($categories as $category)
 					<option value="{{ $category->id }}">{{ $category->name }}</option>

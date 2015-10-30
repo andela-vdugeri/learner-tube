@@ -20,9 +20,19 @@
 		<li><a href="{{ route('auth.login')  }}">Login</a></li>
 		<li><a href="{{ route('auth.register') }}">Register</a></li>
 		@else
-		  <li><a href="{{ route('video.create') }}" id="upload"><button type="button" class="btn btn-default btn-sm">Upload</button></a></li>
-		  <li><a href="{{ route('videos.all') }}">Videos</a></li>
-		  <li><a href="{{ route('auth.logout') }}">Logout</a></li>
+		  <li><a href="{{ route('video.create') }}" id="upload">New Video</a></li>
+			<li><a href="{{ route('category.create') }}">New Category</a></li>
+		  <li class="dropdown">
+			 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+				<img src="{{ $user->avatar_url }}" class="profile-image img-circle" width="40" height="40"><b class="caret"></b>
+			 </a>
+			 <ul class="dropdown-menu">
+				<li><a href="{{ route('dashboard') }}"><i class="fa fa-cog">Account</i></a></li>
+				<li class="divider"></li>
+				<li><a href="{{ route('videos.all') }}"><i class="fa fa-file-video-o">My Videos</i></a></li>
+				<li><a href="{{ route('auth.logout') }}"><i class="fa fa-sign-out"></i>Sign Out</a></li>
+			 </ul>
+			</li>
 		@endif
 	 </ul>
 	</div>

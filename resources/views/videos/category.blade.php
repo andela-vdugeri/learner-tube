@@ -7,43 +7,34 @@
 
 
 @section('content')
-	<div class="row">
-		<div class="col s3 m3 l3">
-			&nbsp;
+
+ <div class="row">
+
+	<div class="col-sm-6 col-md-12 col-lg-4 col-lg-offset-4" style="margin-top: 200px;">
+	 @if(session()->has('info'))
+		<div class="alert alert-danger" role="alert">
+		 <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+		 <span class="sr-only">Error:</span>
+		 {{ session()->get('info') }}
 		</div>
-		<div class="col s6 m6 l6">
-			<div class="section">
-			 <div class="section"></div>
-			 <div class="section"></div>
-			 <div class="section"></div>
-			 <div class="section"></div>
-			 <div class="card card-panel">
-				<div class="card-title black-text center">
-				 New Category
-				</div>
-				<form action="{{ route('post.category') }}" method="post">
-				 <input type="hidden" value="{{ csrf_token() }}" name="_token">
-				 <div class="input-field">
-					<input type="text" name="category" id="category" required>
-					<label for="category">Category Name</label>
-				 </div>
-				 <div class="input-field">
-					<button class="btn waves-effect waves-light right" type="submit">Add
-					 <i class="material-icons right">send</i>
-					</button>
-				 </div>
-				 <div>
-					@if(count($errors) > 0)
-					 <ul>
-						@foreach( $errors as $error)
-						 <li class="red-text">{{ $error }}</li>
-						@endforeach
-					 </ul>
-					@endif
-				 </div>
-				</form>
+	 @endif
+	 <div class="panel panel-default">
+		<div class="panel-heading">New Category</div>
+		<div class="panel-body">
+		 <form action="{{ route('post.category') }}" method="post">
+			<input type="hidden" name="_token" value="{!! csrf_token() !!}">
+			<div class="form-group">
+			 <div class="input-group">
+				<span class="input-group-addon" id="name-addon">Name</span>
+				<input type="text" name="name" id="name" class="form-control" placeholder="Category name" aria-describedby="name-addon" required>
 			 </div>
 			</div>
+			 <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 col-lg-offset-10">
+				<button type="submit" class="btn btn-primary btn-right" name="submit">Add</button>
+			 </div>
+		 </form>
 		</div>
+	 </div>
 	</div>
+ </div>
 @endsection
