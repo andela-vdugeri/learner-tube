@@ -12,3 +12,11 @@
 .profile-image {
     margin-top: -5px;
 }
+
+#image{
+    display: none;
+}
+
+#profile-pic{
+    cursor: pointer;
+}

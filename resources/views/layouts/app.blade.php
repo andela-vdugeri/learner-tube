@@ -3,6 +3,7 @@
 <head>
  <title>Tubr</title>
  <meta name="viewport" content="width=device-width, initial-scale=1">
+ <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
  <link href='http://fonts.googleapis.com/css?family=Raleway:500' rel='stylesheet' type='text/css'>
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
  <link href="{{ asset('css/font-awesome.min.css') }}" type="text/css" rel="stylesheet" media="screen,projection"/>
@@ -19,9 +20,7 @@
 	@yield('footer')
  </div>
 </div>
-
-</body>
 <script src="{{ asset('js/application.js') }}"></script>
-<script src="{{ asset('js/jquery-1.11.3.min.js') }}"></script>
 <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+</body>
 </html>

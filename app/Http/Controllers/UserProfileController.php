@@ -37,9 +37,8 @@ class UserProfileController extends Controller
      {
 
 		$user = User::find($id);
-
-		if ($request['file']) {
-			$file = $request['file'];
+		if ($request['image']) {
+			$file = $request['image'];
 
 			$uploader->uploadImage($file);
 			$url = $uploader->getShortUrl();
